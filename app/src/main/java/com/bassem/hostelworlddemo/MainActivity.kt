@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.bassem.hostelworlddemo.presentation.ui.HostelWorldApp
+import com.bassem.hostelworlddemo.presentation.ui.home.HomeScreen
 import com.bassem.hostelworlddemo.presentation.ui.theme.HostelWorldDemoTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             HostelWorldDemoTheme {
-                HostelWorldApp()
+                HomeScreen()
             }
         }
     }

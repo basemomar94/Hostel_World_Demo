@@ -20,7 +20,7 @@ fun HomeListPreview() {
 @Composable
 fun HomeList(
     propertiesList: List<Property>,
-    onClick: (Int) -> Unit,
+    onClick: (Property) -> Unit,
 ) {
     LazyColumn (
         modifier = Modifier
@@ -30,7 +30,7 @@ fun HomeList(
         items(propertiesList, key = { it.id }) { item ->
             PropertyItem(
                 item,
-                onCardClick = { onClick(item.id) },
+                onCardClick = { onClick(item) },
             )
         }
     }

@@ -27,6 +27,7 @@ version-catalog-update = "0.8.4"
 serialization = "1.6.21"
 junitJupiterParams = "5.10.1"
 mockkVersion = "1.13.5"
+adaptiveNavigationAndroid = "1.0.0"
 
 
 [libraries]
@@ -73,6 +74,7 @@ retrofit2-converter-gson = { module = "com.squareup.retrofit2:converter-gson", v
 junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junitJupiterParams" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockkVersion" }
 mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockkVersion" }
+androidx-adaptive-navigation-android = { group = "androidx.compose.material3.adaptive", name = "adaptive-navigation-android", version.ref = "adaptiveNavigationAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }

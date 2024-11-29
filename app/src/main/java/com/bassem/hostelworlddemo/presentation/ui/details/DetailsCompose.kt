@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,7 +34,7 @@ fun DetailsScreenPreview() {
 }
 
 @Composable
-fun DetailsScreen(property: Property) {
+fun DetailsScreen(property: Property, modifier: Modifier = Modifier) {
     with(property) {
         DetailsCompose(
             propertyName = name,
@@ -41,6 +43,7 @@ fun DetailsScreen(property: Property) {
             rating = ratingBreakdown.getRating(),
             price = lowestPricePerNight.value,
             address = address1,
+            modifier = modifier
         )
 
     }
@@ -57,32 +60,40 @@ fun DetailsCompose(
     address: String,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier.padding(dimensionResource(R.dimen.default_padding))) {
+    val scrollState = rememberScrollState()
+    Column(
+        modifier = modifier
+            .padding(dimensionResource(R.dimen.small_padding))
+            .verticalScroll(scrollState)
+    ) {
         ImagesCarousel(
             images = images.getImagesListUrls(),
-            modifier = modifier.height(dimensionResource(R.dimen.details_image_height)).fillMaxWidth().padding(bottom = dimensionResource(R.dimen.default_padding))
+            modifier = modifier
+                .height(dimensionResource(R.dimen.details_image_height))
+                .fillMaxWidth()
+                .padding(bottom = dimensionResource(R.dimen.default_padding))
         )
         PropertyName(
             name = propertyName,
-            modifier = modifier.padding(bottom = dimensionResource(R.dimen.default_padding))
+            modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
         StarRating(
             rating,
-            modifier = modifier.padding(bottom = dimensionResource(R.dimen.default_padding))
+            modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
         PropertyPrice(
             price,
-            modifier = modifier.padding(bottom = dimensionResource(R.dimen.default_padding))
+            modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
         Text(
             text = overview,
             style = MaterialTheme.typography.labelMedium,
-            modifier = modifier.padding(bottom = dimensionResource(R.dimen.default_padding))
+            modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
         Text(
             text = address,
             style = MaterialTheme.typography.labelMedium,
-            modifier = modifier.padding(bottom = dimensionResource(R.dimen.default_padding))
+            modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
     }
 

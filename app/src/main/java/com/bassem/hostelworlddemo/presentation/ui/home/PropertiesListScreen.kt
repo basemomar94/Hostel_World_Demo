@@ -23,37 +23,33 @@ import com.bassem.hostelworlddemo.utils.Logger
 @Composable
 fun PropertiesListScreen(
     viewModel: HomeViewModel = hiltViewModel(),
-    onClick: (Property) -> Unit
+    onClick: (Property) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val logger = Logger("HomeScreen")
     val result by viewModel.propertiesList.collectAsState(initial = Result.Loading)
 
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+    ) {
+        logger.i("breedResult is $result")
 
+        when (result) {
+            is Result.Loading -> LoadingIndicator()
+            is Result.Success -> {
 
-    Scaffold(
-        topBar = { TopAppBar(title = { Text(text = stringResource(R.string.hostel_world)) }) },
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-        ) {
-            logger.i("breedResult is $result")
+                HomeList(
+                    propertiesList = (result as Result.Success).propertiesData.properties,
+                    onClick = onClick,
+                )
+            }
 
-            when (result) {
-                is Result.Loading -> LoadingIndicator()
-                is Result.Success -> {
-
-                    HomeList(
-                        propertiesList = (result as Result.Success).propertiesData.properties,
-                        onClick = onClick,
-                    )
-                }
-
-                is Result.Fail -> {
-                    ErrorTextCompose(message = (result as Result.Fail).reasons)
-                }
+            is Result.Fail -> {
+                ErrorTextCompose(message = (result as Result.Fail).reasons)
             }
         }
     }
+
+
 }

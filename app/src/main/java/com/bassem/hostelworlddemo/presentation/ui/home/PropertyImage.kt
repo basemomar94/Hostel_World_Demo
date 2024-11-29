@@ -12,7 +12,7 @@ import com.bumptech.glide.integration.compose.placeholder
 
 @Preview(showBackground = true)
 @Composable
-private  fun PropertyImagePreview() {
+private fun PropertyImagePreview() {
     PropertyImage(imageUrl = "test", modifier = Modifier)
 }
 

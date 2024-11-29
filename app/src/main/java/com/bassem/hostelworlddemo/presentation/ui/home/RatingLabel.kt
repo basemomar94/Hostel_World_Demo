@@ -24,15 +24,16 @@ import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.presentation.ui.theme.green
 import com.bassem.hostelworlddemo.presentation.ui.theme.red
 import com.bassem.hostelworlddemo.presentation.ui.theme.yellow
+import com.bassem.hostelworlddemo.presentation.utils.getRatingColor
 
 @Preview
 @Composable
 private fun RatingLabelPreview() {
-    RatingLabel(4)
+    RatingLabel(4.5)
 }
 
 @Composable
-fun RatingLabel(rating: Int, modifier: Modifier = Modifier) {
+fun RatingLabel(rating: Double, modifier: Modifier = Modifier) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Start,
@@ -60,9 +61,4 @@ fun RatingLabel(rating: Int, modifier: Modifier = Modifier) {
     }
 }
 
-@Composable
-private fun getRatingColor(rating: Int) = when {
-    rating >= 8 -> green
-    rating >= 5 -> yellow
-    else -> red
-}
+

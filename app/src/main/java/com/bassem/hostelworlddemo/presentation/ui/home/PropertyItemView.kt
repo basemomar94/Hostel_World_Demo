@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.Property
-import com.bassem.hostelworlddemo.presentation.utils.getImageUrl
+import com.bassem.hostelworlddemo.presentation.utils.getRandomImageUrl
 import com.bassem.hostelworlddemo.presentation.utils.getRating
 import com.bassem.hostelworlddemo.utils.Logger
 
@@ -27,11 +27,12 @@ import com.bassem.hostelworlddemo.utils.Logger
 @Composable
 private fun PreviewPropertyItem() {
     PropertyItemCompose(
-        name = "Sphinx Cat",
-        imageUrl = "https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg",
+        name = "Sphinx Hotel",
+        imageUrl = "",
         isFeatured = true,
-        rating = 5,
+        rating = 5.5,
         lowestPrice = "3.3",
+        isNew = true,
         onCardClick = {},
     )
 }
@@ -40,13 +41,14 @@ private fun PreviewPropertyItem() {
 fun PropertyItem(property: Property, onCardClick: () -> Unit) {
     val log = Logger("PropertyItem")
     with(property) {
-        log.d("random image url is ${imagesGallery.getImageUrl()}")
+        log.d("random image url is ${imagesGallery.getRandomImageUrl()}")
         PropertyItemCompose(
             name = name,
-            imageUrl = imagesGallery.getImageUrl(),
+            imageUrl = imagesGallery.getRandomImageUrl(),
             isFeatured = isFeatured,
             rating = ratingBreakdown.getRating(),
             lowestPrice = lowestPricePerNight.value,
+            isNew = isNew,
             onCardClick = onCardClick,
         )
     }
@@ -58,8 +60,9 @@ private fun PropertyItemCompose(
     name: String,
     imageUrl: String?,
     isFeatured: Boolean,
+    isNew:Boolean,
     onCardClick: () -> Unit,
-    rating: Int,
+    rating: Double,
     lowestPrice: String,
     modifier: Modifier = Modifier
 ) {
@@ -85,9 +88,15 @@ private fun PropertyItemCompose(
                             dimensionResource(id = R.dimen.image_height)
                         )
                 )
-                if (isFeatured) {
-                    FeaturedLabel(modifier = modifier.padding(dimensionResource(R.dimen.small_padding)))
+                Row(modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                    if (isFeatured) {
+                        FeaturedLabel(modifier = modifier.padding(dimensionResource(R.dimen.small_padding)).align(Alignment.Top))
+                    }
+                    if (isNew){
+                        NewLabel()
+                    }
                 }
+
 
             }
             Spacer(modifier = Modifier.height(dimensionResource(R.dimen.default_padding)))

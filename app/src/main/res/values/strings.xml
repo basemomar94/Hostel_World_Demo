@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Hostel World Demo</string>
+    <string name="app_name">Hostel World</string>
+    <string name="net_work_error">NetWork Error</string>
+    <string name="local_parsing_error">Local Parsing Error</string>
+    <string name="remote_parsing_error">Remote Parsing Error</string>
+    <string name="unexpected_error">Unexpected Error</string>
 </resources>

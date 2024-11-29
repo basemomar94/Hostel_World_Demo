@@ -4,4 +4,8 @@
     <string name="local_parsing_error">Local Parsing Error</string>
     <string name="remote_parsing_error">Remote Parsing Error</string>
     <string name="unexpected_error">Unexpected Error</string>
+    <string name="property_image">Property Image</string>
+    <string name="featured">Featured</string>
+    <string name="price_icon">Price Icon</string>
+    <string name="hostel_world">Hostel World</string>
 </resources>

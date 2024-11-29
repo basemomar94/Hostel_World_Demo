@@ -5,7 +5,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.bassem.hostelworlddemo.presentation.ui.details.DetailsScreen
 import com.bassem.hostelworlddemo.presentation.ui.home.HomeScreen
 
 @Composable

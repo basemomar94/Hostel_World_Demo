@@ -1,4 +1,4 @@
-package com.bassem.hostelworlddemo.ui.theme
+package com.bassem.hostelworlddemo.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

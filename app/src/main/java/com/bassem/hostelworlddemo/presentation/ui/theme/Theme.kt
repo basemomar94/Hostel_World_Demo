@@ -1,4 +1,4 @@
-package com.bassem.hostelworlddemo.ui.theme
+package com.bassem.hostelworlddemo.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

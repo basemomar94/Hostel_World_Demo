@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.Property
 import com.bassem.hostelworlddemo.presentation.utils.getImageUrl
+import com.bassem.hostelworlddemo.presentation.utils.getRating
 import com.bassem.hostelworlddemo.utils.Logger
 
 @Preview(showBackground = true)
@@ -44,7 +45,7 @@ fun PropertyItem(property: Property, onCardClick: () -> Unit) {
             name = name,
             imageUrl = imagesGallery.getImageUrl(),
             isFeatured = isFeatured,
-            rating = ratingBreakdown.average,
+            rating = ratingBreakdown.getRating(),
             lowestPrice = lowestPricePerNight.value,
             onCardClick = onCardClick,
         )

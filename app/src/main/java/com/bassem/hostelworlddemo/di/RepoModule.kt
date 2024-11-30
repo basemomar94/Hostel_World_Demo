@@ -1,5 +1,7 @@
 package com.bassem.hostelworlddemo.di
 
+import com.bassem.hostelworlddemo.domain.reposiory.ExchangeRepo
+import com.bassem.hostelworlddemo.domain.reposiory.ExchangeRepoImp
 import com.bassem.hostelworlddemo.domain.reposiory.PropertiesRepo
 import com.bassem.hostelworlddemo.domain.reposiory.PropertiesRepoImp
 import dagger.Binds
@@ -14,4 +16,7 @@ abstract class RepoModule {
 
     @Binds
     abstract fun providePropertiesRepo(impl: PropertiesRepoImp): PropertiesRepo
+
+    @Binds
+    abstract fun provideExchangeRatesRepo(impl: ExchangeRepoImp): ExchangeRepo
 }

@@ -9,4 +9,8 @@
     <string name="price_icon">Price Icon</string>
     <string name="hostel_world">Hostel World</string>
     <string name="_new">NEW</string>
+    <string name="prompted">Prompted</string>
+    <string name="free_cancelation">Free Cancelation</string>
+    <string name="no_properties_found">No valid properties found.</string>
+    <string name="unexpected_data_format">Unexpected data format</string>
 </resources>

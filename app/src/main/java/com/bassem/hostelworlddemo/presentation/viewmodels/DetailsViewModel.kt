@@ -2,7 +2,6 @@ package com.bassem.hostelworlddemo.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bassem.hostelworlddemo.data.models.Property
 import com.bassem.hostelworlddemo.domain.usecases.FetchPropertiesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -11,21 +10,23 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import com.bassem.hostelworlddemo.data.models.Result
+import com.bassem.hostelworlddemo.domain.usecases.FetchExchangeRateUseCase
 
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val fetchPropertiesUseCase: FetchPropertiesUseCase) :
+class DetailsViewModel @Inject constructor(private val fetchExchangeRateRatesUseCase: FetchExchangeRateUseCase) :
     ViewModel() {
     private var _propertiesList = MutableStateFlow<Result<Any?>?>(null)
     val propertiesList: Flow<Result<Any?>> get() = _propertiesList.filterNotNull()
 
     init {
-        fetchProperties()
+        fetchExchangeRates()
     }
 
-    private fun fetchProperties() = viewModelScope.launch {
-        fetchPropertiesUseCase().collect { result ->
-            _propertiesList.value = result
+     private fun fetchExchangeRates() = viewModelScope.launch {
+         fetchExchangeRateRatesUseCase().collect { resutlt ->
+            _propertiesList.value =resutlt
         }
     }
+
 }

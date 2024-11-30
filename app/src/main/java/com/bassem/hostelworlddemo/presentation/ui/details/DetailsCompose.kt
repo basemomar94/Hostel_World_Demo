@@ -22,6 +22,7 @@ import com.bassem.hostelworlddemo.presentation.utils.getCity
 import com.bassem.hostelworlddemo.presentation.utils.getImagesListUrls
 import com.bassem.hostelworlddemo.presentation.utils.getPrice
 import com.bassem.hostelworlddemo.presentation.utils.getRating
+import com.bassem.hostelworlddemo.presentation.viewmodels.DetailsViewModel
 
 @Preview
 @Composable
@@ -61,7 +62,7 @@ fun DetailsCompose(
     rating: Double,
     price: String,
     address: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val scrollState = rememberScrollState()
     Column(

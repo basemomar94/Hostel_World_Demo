@@ -15,10 +15,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bassem.hostelworlddemo.R
+import com.bassem.hostelworlddemo.data.models.FreeCancellation
 import com.bassem.hostelworlddemo.data.models.Property
+import com.bassem.hostelworlddemo.presentation.ui.theme.babyBlue
+import com.bassem.hostelworlddemo.presentation.ui.theme.green
+import com.bassem.hostelworlddemo.presentation.ui.theme.teal
+import com.bassem.hostelworlddemo.presentation.ui.theme.yellow
 import com.bassem.hostelworlddemo.presentation.utils.getPrice
 import com.bassem.hostelworlddemo.presentation.utils.getRandomImageUrl
 import com.bassem.hostelworlddemo.presentation.utils.getRating
@@ -34,6 +40,8 @@ private fun PreviewPropertyItem() {
         rating = 5.5,
         lowestPrice = "3.3",
         isNew = true,
+        isPrompt = false,
+        isFreeCancellation = false,
         onCardClick = {},
     )
 }
@@ -50,6 +58,8 @@ fun PropertyItem(property: Property, onCardClick: () -> Unit) {
             rating = ratingBreakdown.getRating(),
             lowestPrice = lowestPricePerNight.getPrice(),
             isNew = isNew,
+            isPrompt = isPromoted,
+            isFreeCancellation = freeCancellationAvailable,
             onCardClick = onCardClick,
         )
     }
@@ -61,7 +71,9 @@ private fun PropertyItemCompose(
     name: String,
     imageUrl: String?,
     isFeatured: Boolean,
-    isNew:Boolean,
+    isNew: Boolean,
+    isPrompt: Boolean,
+    isFreeCancellation: Boolean,
     onCardClick: () -> Unit,
     rating: Double,
     lowestPrice: String,
@@ -89,12 +101,36 @@ private fun PropertyItemCompose(
                             dimensionResource(id = R.dimen.image_height)
                         )
                 )
-                Row(modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                    if (isFeatured) {
-                        FeaturedLabel(modifier = modifier.padding(dimensionResource(R.dimen.small_padding)).align(Alignment.Top))
-                    }
-                    if (isNew){
-                        NewLabel()
+                Row(
+                    modifier = modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    when {
+                        isFeatured -> FeaturedLabel(
+                            modifier = modifier.align(Alignment.Top),
+                            text = stringResource(R.string.featured),
+                            backgroundColor = yellow
+                        )
+
+                        isNew -> FeaturedLabel(
+                            modifier = modifier.align(Alignment.Top),
+                            text = stringResource(R.string._new),
+                            backgroundColor = babyBlue
+                        )
+
+                        isPrompt -> FeaturedLabel(
+                            modifier = modifier.align(Alignment.Top),
+                            text = stringResource(R.string.prompted),
+                            backgroundColor = green
+                        )
+
+                        isFreeCancellation -> FeaturedLabel(
+                            modifier = modifier.align(Alignment.Top),
+                            text = stringResource(R.string.free_cancelation),
+                            backgroundColor = teal
+                        )
+
+
                     }
                 }
 
@@ -102,7 +138,10 @@ private fun PropertyItemCompose(
             }
             Spacer(modifier = Modifier.height(dimensionResource(R.dimen.default_padding)))
             PropertyName(name)
-            Row(modifier = modifier.padding(dimensionResource(R.dimen.small_padding)).fillMaxWidth(),
+            Row(
+                modifier = modifier
+                    .padding(dimensionResource(R.dimen.small_padding))
+                    .fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
 
@@ -110,7 +149,11 @@ private fun PropertyItemCompose(
                 RatingLabel(
                     rating = rating,
                 )
-                PropertyLabelWithIcon(text = lowestPrice, drawable = R.drawable.price, modifier = modifier.align(Alignment.CenterVertically))
+                PropertyLabelWithIcon(
+                    text = lowestPrice,
+                    drawable = R.drawable.price,
+                    modifier = modifier.align(Alignment.CenterVertically)
+                )
 
             }
         }

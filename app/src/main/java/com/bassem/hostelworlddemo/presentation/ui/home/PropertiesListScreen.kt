@@ -17,6 +17,7 @@ import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.Property
 import com.bassem.hostelworlddemo.presentation.viewmodels.HomeViewModel
 import com.bassem.hostelworlddemo.data.models.Result
+import com.bassem.hostelworlddemo.data.models.ResultData
 import com.bassem.hostelworlddemo.utils.Logger
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -36,13 +37,24 @@ fun PropertiesListScreen(
         logger.i("breedResult is $result")
 
         when (result) {
-            is Result.Loading -> LoadingIndicator()
+            is Result.Loading -> {
+                LoadingIndicator()
+            }
             is Result.Success -> {
-
-                HomeList(
-                    propertiesList = (result as Result.Success).propertiesData.properties,
-                    onClick = onClick,
-                )
+                val successResult = (result as Result.Success<Any?>).data as? ResultData
+                if (successResult != null) {
+                    val propertiesList = successResult.properties
+                    if (propertiesList.isNotEmpty()) {
+                        HomeList(
+                            propertiesList = propertiesList,
+                            onClick = onClick,
+                        )
+                    } else {
+                        ErrorTextCompose(message = stringResource(R.string.no_properties_found))
+                    }
+                } else {
+                    ErrorTextCompose(message = stringResource(R.string.unexpected_data_format))
+                }
             }
 
             is Result.Fail -> {

@@ -1,6 +1,8 @@
 package com.bassem.hostelworlddemo.di
 
+import com.bassem.hostelworlddemo.domain.reposiory.ExchangeRepo
 import com.bassem.hostelworlddemo.domain.reposiory.PropertiesRepo
+import com.bassem.hostelworlddemo.domain.usecases.FetchExchangeRateUseCase
 import com.bassem.hostelworlddemo.domain.usecases.FetchPropertiesUseCase
 import dagger.Module
 import dagger.Provides
@@ -16,5 +18,12 @@ object UseCaseModule {
         propertiesRepo: PropertiesRepo
     ): FetchPropertiesUseCase {
         return FetchPropertiesUseCase(propertiesRepo)
+    }
+
+    @Provides
+    fun provideFetchExchangeRateUseCase(
+        exchangeRepo: ExchangeRepo
+    ): FetchExchangeRateUseCase {
+        return FetchExchangeRateUseCase(exchangeRepo)
     }
 }

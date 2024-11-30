@@ -22,25 +22,25 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.bassem.hostelworlddemo.R
-import com.bassem.hostelworlddemo.presentation.ui.theme.gold
+import com.bassem.hostelworlddemo.presentation.ui.theme.red
 
 @Preview
 @Composable
 private fun FeaturedLabelPreview() {
-    FeaturedLabel()
+    FeaturedLabel("NEW", red)
 }
 
 @Composable
-fun FeaturedLabel(modifier: Modifier = Modifier) {
+fun FeaturedLabel(text: String, backgroundColor: Color, modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .background(
-                color = gold,
-                shape = RoundedCornerShape(dimensionResource(R.dimen.card_corner_radius))
+                color = backgroundColor,
+                shape = RoundedCornerShape(topStart = dimensionResource(R.dimen.card_corner_radius))
             )
             .padding(
-                horizontal = dimensionResource(R.dimen.default_padding),
-                vertical = dimensionResource(R.dimen.default_padding)
+                horizontal = dimensionResource(R.dimen.small_padding),
+                vertical = dimensionResource(R.dimen.small_padding)
             )
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -52,7 +52,7 @@ fun FeaturedLabel(modifier: Modifier = Modifier) {
             )
             Spacer(modifier = modifier.width(dimensionResource(R.dimen.small_padding)))
             Text(
-                text = "Featured",
+                text = text,
                 color = Color.White,
                 style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold)
             )

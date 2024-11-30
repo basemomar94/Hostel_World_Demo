@@ -2,7 +2,6 @@ package com.bassem.hostelworlddemo.presentation.utils
 
 import com.bassem.hostelworlddemo.data.models.ImagesGallery
 import com.bassem.hostelworlddemo.data.models.LowestPricePerNight
-import com.bassem.hostelworlddemo.data.models.OriginalLowestAverageDormPricePerNight
 import com.bassem.hostelworlddemo.data.models.RatingBreakdown
 import com.bassem.hostelworlddemo.presentation.ui.theme.green
 import com.bassem.hostelworlddemo.presentation.ui.theme.red

@@ -9,8 +9,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -49,7 +47,8 @@ fun DetailsScreenPreview() {
         rating = 7.8,
         price = null,
         address = "Cairo",
-        rates = Rates(EUR = 1.0, USD = 0.9, GBP = 1.2)
+        rates = Rates(EUR = 1.0, USD = 0.9, GBP = 1.2),
+        cancellation = "Free Cancellation",
     )
 }
 
@@ -77,7 +76,8 @@ fun DetailsScreen(
                         price = lowestPricePerNight,
                         address = district.getCity(),
                         modifier = modifier,
-                        rates = successResult.rates
+                        rates = successResult.rates,
+                        cancellation = freeCancellation?.description ?: "N/A",
                     )
 
                 }
@@ -104,6 +104,7 @@ fun DetailsCompose(
     price: LowestPricePerNight?,
     address: String,
     rates: Rates,
+    cancellation: String,
     modifier: Modifier = Modifier,
 ) {
     val scrollState = rememberScrollState()
@@ -145,13 +146,9 @@ fun DetailsCompose(
             modifier = Modifier.padding(vertical = dimensionResource(R.dimen.default_padding))
         )
 
-        Text(
-            text = overview,
-            style = MaterialTheme.typography.labelMedium,
-        )
-        Text(
-            text = address,
-            style = MaterialTheme.typography.labelMedium,
+        DetailsContainer(
+            overview = overview,
+            cancellation = cancellation,
         )
     }
 

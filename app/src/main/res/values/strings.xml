@@ -13,4 +13,5 @@
     <string name="free_cancelation">Free Cancelation</string>
     <string name="no_properties_found">No valid properties found.</string>
     <string name="unexpected_data_format">Unexpected data format</string>
+    <string name="data_process_error">Data processing error</string>
 </resources>

@@ -15,8 +15,8 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailsViewModel @Inject constructor(private val fetchExchangeRateRatesUseCase: FetchExchangeRateUseCase) :
     ViewModel() {
-    private var _propertiesList = MutableStateFlow<Result<Any?>?>(null)
-    val propertiesList: Flow<Result<Any?>> get() = _propertiesList.filterNotNull()
+    private var _exchangeRatesList = MutableStateFlow<Result<Any?>?>(null)
+    val exchangeRatesList: Flow<Result<Any?>> get() = _exchangeRatesList.filterNotNull()
 
     init {
         fetchExchangeRates()
@@ -24,7 +24,7 @@ class DetailsViewModel @Inject constructor(private val fetchExchangeRateRatesUse
 
      private fun fetchExchangeRates() = viewModelScope.launch {
          fetchExchangeRateRatesUseCase().collect { resutlt ->
-            _propertiesList.value =resutlt
+            _exchangeRatesList.value =resutlt
         }
     }
 

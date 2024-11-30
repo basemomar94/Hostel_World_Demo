@@ -3,10 +3,13 @@ package com.bassem.hostelworlddemo.presentation.utils
 import com.bassem.hostelworlddemo.data.models.District
 import com.bassem.hostelworlddemo.data.models.ImagesGallery
 import com.bassem.hostelworlddemo.data.models.LowestPricePerNight
+import com.bassem.hostelworlddemo.data.models.Rates
 import com.bassem.hostelworlddemo.data.models.RatingBreakdown
 import com.bassem.hostelworlddemo.presentation.ui.theme.green
 import com.bassem.hostelworlddemo.presentation.ui.theme.red
 import com.bassem.hostelworlddemo.presentation.ui.theme.yellow
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 fun List<ImagesGallery>.getRandomImageUrl(): String {
     val randomImage = random()
@@ -41,3 +44,15 @@ fun District?.getCity(): String {
     if (this == null || name == null) return "N/A"
     return name
 }
+
+fun String?.convert(currency: String, rates: Rates): String {
+    val price = this?.toDoubleOrNull() ?: return "N/A"
+    return when (currency) {
+        "EUR" -> price.roundToTwoDecimals()
+        "USD" -> (price * rates.USD).roundToTwoDecimals()
+        "GBP" -> (price * rates.GBP).roundToTwoDecimals()
+        else -> "N/A"
+    }
+}
+
+fun Double.roundToTwoDecimals() = BigDecimal(this).setScale(2, RoundingMode.HALF_UP).toString()

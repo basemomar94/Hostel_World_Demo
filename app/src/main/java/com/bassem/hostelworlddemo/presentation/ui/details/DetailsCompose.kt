@@ -10,15 +10,14 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.ImagesGallery
 import com.bassem.hostelworlddemo.data.models.Property
-import com.bassem.hostelworlddemo.presentation.ui.home.PropertyName
 import com.bassem.hostelworlddemo.presentation.ui.home.PropertyLabelWithIcon
+import com.bassem.hostelworlddemo.presentation.ui.home.PropertyName
 import com.bassem.hostelworlddemo.presentation.utils.getImagesListUrls
 import com.bassem.hostelworlddemo.presentation.utils.getPrice
 import com.bassem.hostelworlddemo.presentation.utils.getRating

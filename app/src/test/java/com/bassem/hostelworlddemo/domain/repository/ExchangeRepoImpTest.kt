@@ -3,8 +3,6 @@ package com.bassem.hostelworlddemo.domain.repository
 import android.content.Context
 import com.bassem.hostelworlddemo.BaseTest
 import com.bassem.hostelworlddemo.data.api.ApiService
-import com.bassem.hostelworlddemo.data.models.ExchangeData
-import com.bassem.hostelworlddemo.data.models.Rates
 import com.bassem.hostelworlddemo.data.models.Result
 import com.bassem.hostelworlddemo.domain.reposiory.ExchangeRepoImp
 import io.mockk.coEvery
@@ -19,7 +17,6 @@ class ExchangeRepoImpTest : BaseTest() {
     private lateinit var repoImp: ExchangeRepoImp
     private val apiService: ApiService = mockk(relaxed = true)
     private val context: Context = mockk(relaxed = true)
-    private val ratesResult = ExchangeData(Rates(EUR = 1.0, USD = .9, GBP = 1.2))
 
     override fun setup() {
         super.setup()

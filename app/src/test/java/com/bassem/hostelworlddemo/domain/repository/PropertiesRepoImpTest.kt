@@ -18,7 +18,6 @@ class PropertiesRepoImpTest : BaseTest() {
     private lateinit var repoImp: PropertiesRepoImp
     private val apiService: ApiService = mockk(relaxed = true)
     private val context: Context = mockk(relaxed = true)
-    private val propertiesResult = ResultData(location = null, properties = listOf())
 
     override fun setup() {
         super.setup()

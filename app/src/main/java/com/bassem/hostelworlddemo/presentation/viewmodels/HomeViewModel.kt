@@ -1,5 +1,6 @@
 package com.bassem.hostelworlddemo.presentation.viewmodels
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bassem.hostelworlddemo.data.models.Result
@@ -22,7 +23,8 @@ class HomeViewModel @Inject constructor(private val fetchPropertiesUseCase: Fetc
         fetchProperties()
     }
 
-    private fun fetchProperties() = viewModelScope.launch {
+    @VisibleForTesting
+    fun fetchProperties() = viewModelScope.launch {
         fetchPropertiesUseCase().collect { result ->
             _propertiesList.value = result
         }

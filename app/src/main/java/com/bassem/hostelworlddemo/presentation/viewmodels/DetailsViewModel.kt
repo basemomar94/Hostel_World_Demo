@@ -1,5 +1,6 @@
 package com.bassem.hostelworlddemo.presentation.viewmodels
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bassem.hostelworlddemo.data.models.Result
@@ -22,9 +23,10 @@ class DetailsViewModel @Inject constructor(private val fetchExchangeRateRatesUse
         fetchExchangeRates()
     }
 
-     private fun fetchExchangeRates() = viewModelScope.launch {
-         fetchExchangeRateRatesUseCase().collect { resutlt ->
-            _exchangeRatesList.value =resutlt
+    @VisibleForTesting
+    fun fetchExchangeRates() = viewModelScope.launch {
+        fetchExchangeRateRatesUseCase().collect { resutlt ->
+            _exchangeRatesList.value = resutlt
         }
     }
 

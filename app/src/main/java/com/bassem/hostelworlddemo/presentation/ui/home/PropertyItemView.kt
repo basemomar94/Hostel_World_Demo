@@ -20,6 +20,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.Property
+import com.bassem.hostelworlddemo.presentation.ui.shared.LabelText
+import com.bassem.hostelworlddemo.presentation.ui.shared.PropertyImage
+import com.bassem.hostelworlddemo.presentation.ui.shared.PropertyLabelWithIcon
 import com.bassem.hostelworlddemo.presentation.ui.theme.babyBlue
 import com.bassem.hostelworlddemo.presentation.ui.theme.green
 import com.bassem.hostelworlddemo.presentation.ui.theme.teal
@@ -105,25 +108,25 @@ private fun PropertyItemCompose(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     when {
-                        isFeatured -> FeaturedLabel(
+                        isFeatured -> LabelText(
                             modifier = modifier.align(Alignment.Top),
                             text = stringResource(R.string.featured),
                             backgroundColor = yellow
                         )
 
-                        isNew -> FeaturedLabel(
+                        isNew -> LabelText(
                             modifier = modifier.align(Alignment.Top),
                             text = stringResource(R.string._new),
                             backgroundColor = babyBlue
                         )
 
-                        isPrompt -> FeaturedLabel(
+                        isPrompt -> LabelText(
                             modifier = modifier.align(Alignment.Top),
                             text = stringResource(R.string.prompted),
                             backgroundColor = green
                         )
 
-                        isFreeCancellation -> FeaturedLabel(
+                        isFreeCancellation -> LabelText(
                             modifier = modifier.align(Alignment.Top),
                             text = stringResource(R.string.free_cancelation),
                             backgroundColor = teal

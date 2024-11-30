@@ -27,9 +27,9 @@ import com.bassem.hostelworlddemo.data.models.LowestPricePerNight
 import com.bassem.hostelworlddemo.data.models.Property
 import com.bassem.hostelworlddemo.data.models.Rates
 import com.bassem.hostelworlddemo.data.models.Result
-import com.bassem.hostelworlddemo.presentation.ui.home.ErrorTextCompose
-import com.bassem.hostelworlddemo.presentation.ui.home.LoadingIndicator
-import com.bassem.hostelworlddemo.presentation.ui.home.PropertyLabelWithIcon
+import com.bassem.hostelworlddemo.presentation.ui.shared.ErrorTextCompose
+import com.bassem.hostelworlddemo.presentation.ui.shared.LoadingIndicator
+import com.bassem.hostelworlddemo.presentation.ui.shared.PropertyLabelWithIcon
 import com.bassem.hostelworlddemo.presentation.ui.home.PropertyName
 import com.bassem.hostelworlddemo.presentation.utils.convert
 import com.bassem.hostelworlddemo.presentation.utils.getCity

@@ -1,4 +1,4 @@
-package com.bassem.hostelworlddemo.presentation.ui.home
+package com.bassem.hostelworlddemo.presentation.ui.shared
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -26,12 +26,12 @@ import com.bassem.hostelworlddemo.presentation.ui.theme.red
 
 @Preview
 @Composable
-private fun FeaturedLabelPreview() {
-    FeaturedLabel("NEW", red)
+private fun LabelTextPreview() {
+    LabelText("NEW", red)
 }
 
 @Composable
-fun FeaturedLabel(text: String, backgroundColor: Color, modifier: Modifier = Modifier) {
+fun LabelText(text: String, backgroundColor: Color, modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .background(

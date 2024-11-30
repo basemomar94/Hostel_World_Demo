@@ -1,4 +1,4 @@
-package com.bassem.hostelworlddemo.presentation.ui.home
+package com.bassem.hostelworlddemo.presentation.ui.shared
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

@@ -13,6 +13,8 @@ import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.Property
 import com.bassem.hostelworlddemo.data.models.Result
 import com.bassem.hostelworlddemo.data.models.ResultData
+import com.bassem.hostelworlddemo.presentation.ui.shared.ErrorTextCompose
+import com.bassem.hostelworlddemo.presentation.ui.shared.LoadingIndicator
 import com.bassem.hostelworlddemo.presentation.viewmodels.HomeViewModel
 import com.bassem.hostelworlddemo.utils.Logger
 

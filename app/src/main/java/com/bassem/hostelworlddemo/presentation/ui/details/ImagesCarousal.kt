@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import com.bassem.hostelworlddemo.R
-import com.bassem.hostelworlddemo.presentation.ui.home.PropertyImage
+import com.bassem.hostelworlddemo.presentation.ui.shared.PropertyImage
 
 @Composable
 fun ImagesCarousel(images: List<String>, modifier: Modifier = Modifier) {

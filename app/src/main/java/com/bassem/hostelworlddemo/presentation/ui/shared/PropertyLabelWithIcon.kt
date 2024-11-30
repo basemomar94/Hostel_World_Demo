@@ -1,4 +1,4 @@
-package com.bassem.hostelworlddemo.presentation.ui.home
+package com.bassem.hostelworlddemo.presentation.ui.shared
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding

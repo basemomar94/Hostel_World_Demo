@@ -1,5 +1,6 @@
 package com.bassem.hostelworlddemo.presentation.utils
 
+import com.bassem.hostelworlddemo.data.models.District
 import com.bassem.hostelworlddemo.data.models.ImagesGallery
 import com.bassem.hostelworlddemo.data.models.LowestPricePerNight
 import com.bassem.hostelworlddemo.data.models.RatingBreakdown
@@ -20,7 +21,10 @@ fun ImagesGallery.composeImageUrl(): String {
     return "https://$prefix$suffix"
 }
 
-fun RatingBreakdown.getRating(): Double = average / 10.0
+fun RatingBreakdown?.getRating(): Double {
+    if (this == null) return -1.0
+    return average / 10.0
+}
 
 fun getRatingColor(rating: Double) = when {
     rating >= 8.0 -> green
@@ -28,4 +32,12 @@ fun getRatingColor(rating: Double) = when {
     else -> red
 }
 
-fun LowestPricePerNight.getPrice() = "$currency $value"
+fun LowestPricePerNight?.getPrice(): String {
+    if (this == null || currency == null || value == null) return "N/A"
+    return "$currency $value"
+}
+
+fun District?.getCity(): String {
+    if (this == null || name == null) return "N/A"
+    return name
+}

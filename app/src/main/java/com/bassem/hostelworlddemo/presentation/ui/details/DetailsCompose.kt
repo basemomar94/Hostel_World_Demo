@@ -18,6 +18,7 @@ import com.bassem.hostelworlddemo.data.models.ImagesGallery
 import com.bassem.hostelworlddemo.data.models.Property
 import com.bassem.hostelworlddemo.presentation.ui.home.PropertyLabelWithIcon
 import com.bassem.hostelworlddemo.presentation.ui.home.PropertyName
+import com.bassem.hostelworlddemo.presentation.utils.getCity
 import com.bassem.hostelworlddemo.presentation.utils.getImagesListUrls
 import com.bassem.hostelworlddemo.presentation.utils.getPrice
 import com.bassem.hostelworlddemo.presentation.utils.getRating
@@ -44,7 +45,7 @@ fun DetailsScreen(property: Property, modifier: Modifier = Modifier) {
             overview = overview,
             rating = ratingBreakdown.getRating(),
             price = lowestPricePerNight.getPrice(),
-            address = district.name,
+            address = district.getCity(),
             modifier = modifier
         )
 
@@ -74,11 +75,13 @@ fun DetailsCompose(
         PropertyName(
             name = propertyName,
         )
-        StarRating(
-            rating,
-        )
+        if (rating != -1.0) {
+            StarRating(
+                rating,
+            )
+        }
         Row(
-            modifier = modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             PropertyLabelWithIcon(

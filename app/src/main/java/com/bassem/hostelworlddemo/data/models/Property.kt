@@ -17,6 +17,7 @@ data class Property(
     val lowestPricePerNight: LowestPricePerNight,
     val name: String,
     val overallRating: OverallRating,
+    val ratingBreakdown: RatingBreakdown,
     val overview: String,
     val starRating: Int,
     val type: String,

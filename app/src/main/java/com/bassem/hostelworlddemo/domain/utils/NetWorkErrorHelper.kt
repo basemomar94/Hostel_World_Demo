@@ -1,4 +1,4 @@
-package com.bassem.hostelworlddemo.domain.reposiory
+package com.bassem.hostelworlddemo.domain.utils
 
 import android.content.Context
 import com.bassem.hostelworlddemo.R

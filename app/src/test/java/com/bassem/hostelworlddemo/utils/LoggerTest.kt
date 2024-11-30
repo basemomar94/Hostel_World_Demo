@@ -18,20 +18,21 @@ class LoggerTest : BaseTest() {
         logger = Logger(tag)
     }
 
+
     @Test
-    fun test_debug_log() {
+    fun `test debug log`() {
         logger.d(message)
         verify { Log.d(tag, message) }
     }
 
     @Test
-    fun test_info_log() {
+    fun `test info log`() {
         logger.i(message)
         verify { Log.i(tag, message) }
     }
 
     @Test
-    fun test_error_log() {
+    fun `test error log`() {
         logger.e(message)
         verify { Log.e(tag, message) }
     }

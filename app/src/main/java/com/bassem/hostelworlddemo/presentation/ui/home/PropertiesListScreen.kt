@@ -2,11 +2,7 @@ package com.bassem.hostelworlddemo.presentation.ui.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -15,9 +11,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.Property
-import com.bassem.hostelworlddemo.presentation.viewmodels.HomeViewModel
 import com.bassem.hostelworlddemo.data.models.Result
 import com.bassem.hostelworlddemo.data.models.ResultData
+import com.bassem.hostelworlddemo.presentation.viewmodels.HomeViewModel
 import com.bassem.hostelworlddemo.utils.Logger
 
 @OptIn(ExperimentalMaterial3Api::class)

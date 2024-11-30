@@ -1,16 +1,10 @@
 package com.bassem.hostelworlddemo.domain.reposiory
 
 import android.content.Context
-import androidx.annotation.VisibleForTesting
-import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.api.ApiService
 import com.bassem.hostelworlddemo.data.models.Result
-import com.google.gson.JsonParseException
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import java.io.IOException
-import java.sql.SQLException
 import javax.inject.Inject
 
 class ExchangeRepoImp @Inject constructor(

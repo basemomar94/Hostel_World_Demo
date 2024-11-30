@@ -4,7 +4,6 @@ import android.content.Context
 import com.bassem.hostelworlddemo.BaseTest
 import com.bassem.hostelworlddemo.data.api.ApiService
 import com.bassem.hostelworlddemo.data.models.Result
-import com.bassem.hostelworlddemo.data.models.ResultData
 import com.bassem.hostelworlddemo.domain.reposiory.PropertiesRepoImp
 import io.mockk.coEvery
 import io.mockk.mockk

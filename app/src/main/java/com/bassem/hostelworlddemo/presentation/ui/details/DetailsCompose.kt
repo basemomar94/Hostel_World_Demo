@@ -18,6 +18,7 @@ import com.bassem.hostelworlddemo.data.models.Property
 import com.bassem.hostelworlddemo.presentation.ui.home.PropertyName
 import com.bassem.hostelworlddemo.presentation.ui.home.PropertyPrice
 import com.bassem.hostelworlddemo.presentation.utils.getImagesListUrls
+import com.bassem.hostelworlddemo.presentation.utils.getPrice
 import com.bassem.hostelworlddemo.presentation.utils.getRating
 
 @Preview
@@ -41,7 +42,7 @@ fun DetailsScreen(property: Property, modifier: Modifier = Modifier) {
             images = imagesGallery,
             overview = overview,
             rating = ratingBreakdown.getRating(),
-            price = lowestPricePerNight.value,
+            price = lowestPricePerNight.getPrice(),
             address = address1,
             modifier = modifier
         )
@@ -63,7 +64,7 @@ fun DetailsCompose(
     val scrollState = rememberScrollState()
     Column(
         modifier = modifier
-            .padding(dimensionResource(R.dimen.small_padding))
+            .padding(dimensionResource(R.dimen.default_padding))
             .verticalScroll(scrollState)
     ) {
         ImagesCarousel(
@@ -71,29 +72,29 @@ fun DetailsCompose(
             modifier = modifier
                 .height(dimensionResource(R.dimen.details_image_height))
                 .fillMaxWidth()
-                .padding(bottom = dimensionResource(R.dimen.default_padding))
+              //  .padding(bottom = dimensionResource(R.dimen.default_padding))
         )
         PropertyName(
             name = propertyName,
-            modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
+           // modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
         StarRating(
             rating,
-            modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
+          //  modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
         PropertyPrice(
             price,
-            modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
+           // modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
         Text(
             text = overview,
             style = MaterialTheme.typography.labelMedium,
-            modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
+          //  modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
         Text(
             text = address,
             style = MaterialTheme.typography.labelMedium,
-            modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
+          //  modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
     }
 

@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -22,7 +23,7 @@ import com.bassem.hostelworlddemo.presentation.ui.home.PropertyImage
 fun ImagesCarousel(images: List<String>, modifier: Modifier = Modifier) {
     var selectedImage by remember { mutableStateOf<String?>(null) }
 
-    Box(modifier = modifier.fillMaxSize()) {
+    Box(modifier = modifier.fillMaxWidth()) {
         LazyRow (
             contentPadding = PaddingValues(dimensionResource(R.dimen.default_padding)),
             horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.default_padding))

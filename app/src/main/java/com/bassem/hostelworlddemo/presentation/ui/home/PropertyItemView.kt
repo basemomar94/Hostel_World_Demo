@@ -110,7 +110,7 @@ private fun PropertyItemCompose(
                 RatingLabel(
                     rating = rating,
                 )
-                PropertyPrice(lowestPrice = lowestPrice, modifier = modifier.align(Alignment.CenterVertically))
+                PropertyLabelWithIcon(text = lowestPrice, drawable = R.drawable.price, modifier = modifier.align(Alignment.CenterVertically))
 
             }
         }

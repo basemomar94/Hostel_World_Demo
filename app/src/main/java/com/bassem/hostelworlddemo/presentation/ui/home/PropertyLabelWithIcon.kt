@@ -19,24 +19,24 @@ import com.bassem.hostelworlddemo.R
 
 @Preview
 @Composable
-private fun PropertyPricePreview() {
-    PropertyPrice("EUR 4000")
+private fun PropertyLabelWithIconPreview() {
+    PropertyLabelWithIcon("EUR 4000", R.drawable.price)
 }
 
 @Composable
-fun PropertyPrice(lowestPrice: String, modifier: Modifier = Modifier) {
+fun PropertyLabelWithIcon(text: String, drawable: Int, modifier: Modifier = Modifier) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier.padding(start = dimensionResource(R.dimen.default_padding))
     ) {
         Icon(
-            painter = painterResource(R.drawable.price),
+            painter = painterResource(drawable),
             contentDescription = stringResource(R.string.price_icon),
             tint = MaterialTheme.colorScheme.primary,
             modifier = modifier.size(dimensionResource(R.dimen.icon_size))
         )
         Text(
-            text = lowestPrice,
+            text = text,
             style = MaterialTheme.typography.bodyLarge.copy(
                 color = MaterialTheme.colorScheme.primary,
                 fontWeight = FontWeight.SemiBold

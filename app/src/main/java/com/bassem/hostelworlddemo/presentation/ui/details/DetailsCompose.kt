@@ -1,14 +1,16 @@
 package com.bassem.hostelworlddemo.presentation.ui.details
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -16,7 +18,7 @@ import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.ImagesGallery
 import com.bassem.hostelworlddemo.data.models.Property
 import com.bassem.hostelworlddemo.presentation.ui.home.PropertyName
-import com.bassem.hostelworlddemo.presentation.ui.home.PropertyPrice
+import com.bassem.hostelworlddemo.presentation.ui.home.PropertyLabelWithIcon
 import com.bassem.hostelworlddemo.presentation.utils.getImagesListUrls
 import com.bassem.hostelworlddemo.presentation.utils.getPrice
 import com.bassem.hostelworlddemo.presentation.utils.getRating
@@ -43,7 +45,7 @@ fun DetailsScreen(property: Property, modifier: Modifier = Modifier) {
             overview = overview,
             rating = ratingBreakdown.getRating(),
             price = lowestPricePerNight.getPrice(),
-            address = address1,
+            address = district.name,
             modifier = modifier
         )
 
@@ -69,32 +71,34 @@ fun DetailsCompose(
     ) {
         ImagesCarousel(
             images = images.getImagesListUrls(),
-            modifier = modifier
-                .height(dimensionResource(R.dimen.details_image_height))
-                .fillMaxWidth()
-              //  .padding(bottom = dimensionResource(R.dimen.default_padding))
         )
         PropertyName(
             name = propertyName,
-           // modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
         StarRating(
             rating,
-          //  modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
-        PropertyPrice(
-            price,
-           // modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
-        )
+        Row(
+            modifier = modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            PropertyLabelWithIcon(
+                text = price,
+                drawable = R.drawable.price
+            )
+            PropertyLabelWithIcon(
+                text = address,
+                drawable = R.drawable.location
+            )
+        }
+
         Text(
             text = overview,
             style = MaterialTheme.typography.labelMedium,
-          //  modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
         Text(
             text = address,
             style = MaterialTheme.typography.labelMedium,
-          //  modifier = modifier.padding(bottom = dimensionResource(R.dimen.small_padding))
         )
     }
 

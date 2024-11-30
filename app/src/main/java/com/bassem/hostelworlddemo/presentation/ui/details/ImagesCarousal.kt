@@ -20,7 +20,6 @@ import com.bassem.hostelworlddemo.presentation.ui.home.PropertyImage
 
 @Composable
 fun ImagesCarousel(images: List<String>, modifier: Modifier = Modifier) {
-    var selectedImage by remember { mutableStateOf<String?>(null) }
 
     Box(modifier = modifier.fillMaxWidth()) {
         LazyRow (
@@ -32,16 +31,7 @@ fun ImagesCarousel(images: List<String>, modifier: Modifier = Modifier) {
                     imageUrl = imageUrl,
                     modifier = Modifier
                         .size(dimensionResource(R.dimen.details_image_height))
-                        .clickable {
-                            selectedImage = imageUrl
-                        }
                 )
-            }
-        }
-
-        if (selectedImage != null) {
-            FullScreenImageDialog(imageUrl = selectedImage) {
-                selectedImage = null
             }
         }
     }

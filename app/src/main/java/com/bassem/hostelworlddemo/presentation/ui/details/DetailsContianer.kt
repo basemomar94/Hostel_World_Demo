@@ -19,7 +19,7 @@ fun DetailsContainer(overview: String, cancellation: String) {
     var selectedTabIndex by remember { mutableIntStateOf(0) }
 
     val tabTitles =
-        listOf(stringResource(R.string.over_view), stringResource(R.string.cancelation))
+        listOf(stringResource(R.string.over_view), stringResource(R.string.cancellation))
 
     Column(modifier = Modifier.fillMaxSize()) {
         TabRow(selectedTabIndex = selectedTabIndex) {

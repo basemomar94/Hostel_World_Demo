@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Hostel World</string>
-    <string name="net_work_error">NetWork Error</string>
+    <string name="net_work_error">No internet connection</string>
     <string name="local_parsing_error">Local Parsing Error</string>
     <string name="remote_parsing_error">Remote Parsing Error</string>
     <string name="unexpected_error">Unexpected Error</string>
@@ -10,11 +10,11 @@
     <string name="hostel_world">Hostel World</string>
     <string name="_new">NEW</string>
     <string name="prompted">Prompted</string>
-    <string name="free_cancelation">Free Cancelation</string>
+    <string name="free_cancellation">Free Cancellation</string>
     <string name="no_properties_found">No valid properties found.</string>
     <string name="unexpected_data_format">Unexpected data format</string>
     <string name="data_process_error">Data processing error</string>
     <string name="over_view">Overview</string>
-    <string name="cancelation">Cancelation</string>
+    <string name="cancellation">Cancellation</string>
     <string name="location">Location</string>
 </resources>

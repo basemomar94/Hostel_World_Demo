@@ -128,7 +128,7 @@ private fun PropertyItemCompose(
 
                         isFreeCancellation -> LabelText(
                             modifier = modifier.align(Alignment.Top),
-                            text = stringResource(R.string.free_cancelation),
+                            text = stringResource(R.string.free_cancellation),
                             backgroundColor = teal
                         )
 

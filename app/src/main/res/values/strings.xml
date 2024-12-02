@@ -16,4 +16,5 @@
     <string name="data_process_error">Data processing error</string>
     <string name="over_view">Overview</string>
     <string name="cancelation">Cancelation</string>
+    <string name="location">Location</string>
 </resources>

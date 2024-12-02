@@ -2,7 +2,6 @@ package com.bassem.hostelworlddemo.presentation.ui.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -19,7 +18,7 @@ import com.bassem.hostelworlddemo.presentation.viewmodels.HomeViewModel
 import com.bassem.hostelworlddemo.utils.Logger
 
 @Composable
-fun PropertiesListScreen(
+fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
     onClick: (Property) -> Unit,
     modifier: Modifier = Modifier
@@ -42,6 +41,10 @@ fun PropertiesListScreen(
                 if (successResult != null) {
                     val propertiesList = successResult.properties
                     if (propertiesList.isNotEmpty()) {
+                        val city = successResult.location?.city
+                        if (city!=null){
+                            CityCountryCard(city = city.name, country = city.country)
+                        }
                         HomeList(
                             propertiesList = propertiesList,
                             onClick = onClick,

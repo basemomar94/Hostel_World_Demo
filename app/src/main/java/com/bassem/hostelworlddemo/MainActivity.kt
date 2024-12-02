@@ -12,7 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.bassem.hostelworlddemo.presentation.ui.home.HomeScreen
+import com.bassem.hostelworlddemo.presentation.ui.home.Navigation
 import com.bassem.hostelworlddemo.presentation.ui.theme.HostelWorldDemoTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
                     topBar =
                     { TopAppBar(title = { Text(text = stringResource(R.string.hostel_world)) }) },
                 ) { paddingValues ->
-                    HomeScreen(modifier = Modifier.padding(paddingValues))
+                    Navigation(modifier = Modifier.padding(paddingValues))
                 }
             }
         }

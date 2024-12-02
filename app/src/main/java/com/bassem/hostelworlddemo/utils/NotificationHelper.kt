@@ -42,7 +42,7 @@ fun Context.sendBackgroundNotification() {
         this,
         getString(R.string.default_notification_channel_id)
     )
-        .setSmallIcon(R.drawable.ic_launcher_foreground)
+        .setSmallIcon(R.drawable.hotel_world)
         .setContentTitle(getString(R.string.notification_title))
         .setOnlyAlertOnce(true)
         .setOngoing(false)

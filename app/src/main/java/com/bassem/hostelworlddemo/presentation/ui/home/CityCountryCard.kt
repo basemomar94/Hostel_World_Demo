@@ -51,7 +51,7 @@ fun CityCountryCard(city: String, country: String, modifier: Modifier = Modifier
             Text(
                 text = country,
                 style = typography.bodyMedium,
-                color = androidx.compose.material3.MaterialTheme.colorScheme.onSurfaceVariant
+                color = colorScheme.onSurfaceVariant
             )
         }
     }

@@ -50,9 +50,8 @@ private fun PreviewPropertyItem() {
 
 @Composable
 fun PropertyItem(property: Property, onCardClick: () -> Unit) {
-    val log = Logger("PropertyItem")
+    Logger("PropertyItem")
     with(property) {
-        log.d("random image url is ${imagesGallery.getRandomImageUrl()}")
         PropertyItemCompose(
             name = name,
             imageUrl = imagesGallery.getRandomImageUrl(),

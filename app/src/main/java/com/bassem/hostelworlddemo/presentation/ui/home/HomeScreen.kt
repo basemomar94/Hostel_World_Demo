@@ -23,15 +23,13 @@ fun HomeScreen(
     onClick: (Property) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val logger = Logger("HomeScreen")
+    Logger("HomeScreen")
     val result by viewModel.propertiesList.collectAsState(initial = Result.Loading)
 
     Column(
         modifier = modifier
             .fillMaxSize()
     ) {
-        logger.i("breedResult is $result")
-
         when (result) {
             is Result.Loading -> {
                 LoadingIndicator()

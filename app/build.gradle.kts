@@ -13,12 +13,12 @@ plugins {
 
 android {
     namespace = "com.bassem.hostelworlddemo"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.bassem.hostelworlddemo"
         minSdk = 28
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -80,13 +80,11 @@ android {
 
 dependencies {
     implementation(libs.androidx.adaptive.navigation.android)
-    ksp(libs.androidx.room.compiler)
     ksp(libs.hilt.android.compiler)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.room.ktx)
     implementation(libs.material)
     implementation(libs.gson)
     implementation(libs.okhttp3.logging.interceptor)
@@ -97,6 +95,8 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.work.runtime.ktx)
+
 
     // Compose
     implementation(platform(libs.androidx.compose.bom))
@@ -127,7 +127,5 @@ dependencies {
     implementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.junit.jupiter.params)
     testImplementation(libs.androidx.core.testing.v210)
-    implementation(libs.androidx.paging.runtime)
-    implementation(libs.androidx.paging.compose)
 
 }

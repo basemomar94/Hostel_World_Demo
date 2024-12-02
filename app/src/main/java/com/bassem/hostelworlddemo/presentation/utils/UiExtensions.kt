@@ -48,11 +48,11 @@ fun District?.getCity(): String {
 fun String?.convert(currency: String, rates: Rates): String {
     val price = this?.toDoubleOrNull() ?: return "N/A"
     return when (currency) {
-        "EUR" -> price.roundToTwoDecimals()
-        "USD" -> (price * rates.USD).roundToTwoDecimals()
-        "GBP" -> (price * rates.GBP).roundToTwoDecimals()
+        "EUR" -> price.roundToOneDecimals()
+        "USD" -> (price * rates.USD).roundToOneDecimals()
+        "GBP" -> (price * rates.GBP).roundToOneDecimals()
         else -> "N/A"
     }
 }
 
-fun Double.roundToTwoDecimals() = BigDecimal(this).setScale(2, RoundingMode.HALF_UP).toString()
+fun Double.roundToOneDecimals() = BigDecimal(this).setScale(1, RoundingMode.HALF_UP).toString()

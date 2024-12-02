@@ -6,7 +6,6 @@ import com.bassem.hostelworlddemo.domain.reposiory.PropertiesRepo
 import com.bassem.hostelworlddemo.domain.reposiory.PropertiesRepoImp
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 

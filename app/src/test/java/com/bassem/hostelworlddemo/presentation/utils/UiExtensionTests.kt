@@ -13,9 +13,9 @@ class UiExtensionTests : BaseTest() {
 
     @ParameterizedTest
     @CsvSource(
-        "EUR, 100.0, 100.00",
-        "USD, 100.0, 120.00",
-        "GBP, 100.0, 90.00"
+        "EUR, 100.0, 100.0",
+        "USD, 100.0, 120.0",
+        "GBP, 100.0, 90.0"
     )
     fun `convert returns correct value based on currency`(
         currency: String,
@@ -29,12 +29,12 @@ class UiExtensionTests : BaseTest() {
 
     @ParameterizedTest
     @CsvSource(
-        "3.14159, 3.14",
-        "2.71828, 2.72",
-        "1.0, 1.00"
+        "3.14159, 3.1",
+        "2.71828, 2.7",
+        "1.0, 1.0"
     )
     fun `roundToTwoDecimals rounds numbers correctly`(input: Double, expected: String) {
-        val result = input.roundToTwoDecimals()
+        val result = input.roundToOneDecimals()
         assertEquals(expected, result)
     }
 

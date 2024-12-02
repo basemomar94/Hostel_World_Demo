@@ -9,7 +9,9 @@
     <dimen name="default_padding">8dp</dimen>
     <dimen name="small_padding">4dp</dimen>
     <dimen name="icon_size">16dp</dimen>
+    <dimen name="icon_size_medium">24dp</dimen>
     <dimen name="icon_size_large">32dp</dimen>
+    <dimen name="text_width">56dp</dimen>
 
 
 </resources>

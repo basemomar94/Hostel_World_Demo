@@ -26,15 +26,15 @@ import com.bassem.hostelworlddemo.data.models.ImagesGallery
 import com.bassem.hostelworlddemo.data.models.LowestPricePerNight
 import com.bassem.hostelworlddemo.data.models.Property
 import com.bassem.hostelworlddemo.data.models.Rates
+import com.bassem.hostelworlddemo.data.models.RatingBreakdown
 import com.bassem.hostelworlddemo.data.models.Result
+import com.bassem.hostelworlddemo.presentation.ui.home.PropertyName
 import com.bassem.hostelworlddemo.presentation.ui.shared.ErrorTextCompose
 import com.bassem.hostelworlddemo.presentation.ui.shared.LoadingIndicator
 import com.bassem.hostelworlddemo.presentation.ui.shared.PropertyLabelWithIcon
-import com.bassem.hostelworlddemo.presentation.ui.home.PropertyName
 import com.bassem.hostelworlddemo.presentation.utils.convert
 import com.bassem.hostelworlddemo.presentation.utils.getCity
 import com.bassem.hostelworlddemo.presentation.utils.getImagesListUrls
-import com.bassem.hostelworlddemo.presentation.utils.getRating
 import com.bassem.hostelworlddemo.presentation.viewmodels.DetailsViewModel
 
 @Preview
@@ -44,7 +44,7 @@ fun DetailsScreenPreview() {
         propertyName = "Alex Hostel",
         images = listOf(),
         overview = "overview test test test test dadad daadad adadd",
-        rating = 7.8,
+        rating = RatingBreakdown(),
         price = null,
         address = "Cairo",
         rates = Rates(EUR = 1.0, USD = 0.9, GBP = 1.2),
@@ -72,7 +72,7 @@ fun DetailsScreen(
                         propertyName = name,
                         images = imagesGallery,
                         overview = overview,
-                        rating = ratingBreakdown.getRating(),
+                        rating = ratingBreakdown,
                         price = lowestPricePerNight,
                         address = district.getCity(),
                         modifier = modifier,
@@ -100,7 +100,7 @@ fun DetailsCompose(
     propertyName: String,
     images: List<ImagesGallery>,
     overview: String,
-    rating: Double,
+    rating: RatingBreakdown?,
     price: LowestPricePerNight?,
     address: String,
     rates: Rates,
@@ -121,11 +121,7 @@ fun DetailsCompose(
         PropertyName(
             name = propertyName,
         )
-        if (rating != -1.0) {
-            StarRating(
-                rating,
-            )
-        }
+
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.default_padding)))
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -145,6 +141,9 @@ fun DetailsCompose(
             onCurrencyChange = { selectedCurrency = it },
             modifier = Modifier.padding(vertical = dimensionResource(R.dimen.default_padding))
         )
+        if (rating != null) {
+            RatingContainer(rating)
+        }
 
         DetailsContainer(
             overview = overview,

@@ -57,7 +57,7 @@ fun PropertyItem(property: Property, onCardClick: () -> Unit) {
             name = name,
             imageUrl = imagesGallery.getRandomImageUrl(),
             isFeatured = isFeatured,
-            rating = ratingBreakdown.getRating(),
+            rating = ratingBreakdown?.average.getRating(),
             lowestPrice = lowestPricePerNight.getPrice(),
             isNew = isNew,
             isPrompt = isPromoted,

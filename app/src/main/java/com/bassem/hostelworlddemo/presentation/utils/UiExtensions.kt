@@ -4,7 +4,6 @@ import com.bassem.hostelworlddemo.data.models.District
 import com.bassem.hostelworlddemo.data.models.ImagesGallery
 import com.bassem.hostelworlddemo.data.models.LowestPricePerNight
 import com.bassem.hostelworlddemo.data.models.Rates
-import com.bassem.hostelworlddemo.data.models.RatingBreakdown
 import com.bassem.hostelworlddemo.presentation.ui.theme.green
 import com.bassem.hostelworlddemo.presentation.ui.theme.red
 import com.bassem.hostelworlddemo.presentation.ui.theme.yellow
@@ -25,9 +24,9 @@ fun ImagesGallery.composeImageUrl(): String {
     return "https://$prefix$suffix"
 }
 
-fun RatingBreakdown?.getRating(): Double {
+fun Int?.getRating(): Double {
     if (this == null) return -1.0
-    return average / 10.0
+    return this / 10.0
 }
 
 fun getRatingColor(rating: Double) = when {

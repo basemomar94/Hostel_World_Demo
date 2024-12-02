@@ -17,4 +17,7 @@
     <string name="over_view">Overview</string>
     <string name="cancellation">Cancellation</string>
     <string name="location">Location</string>
+    <string name="clean">Clean</string>
+    <string name="security">Security</string>
+    <string name="staff">Staff</string>
 </resources>

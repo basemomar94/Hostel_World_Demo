@@ -11,9 +11,10 @@ import com.bassem.hostelworlddemo.presentation.ui.theme.yellow
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-fun List<ImagesGallery>.getRandomImageUrl(): String {
-    val randomImage = random()
-    return randomImage.composeImageUrl()
+fun List<ImagesGallery>?.getRandomImageUrl(): String? {
+    if (this?.isEmpty() == true) return ""
+    val randomImage = this?.random()
+    return randomImage?.composeImageUrl()
 }
 
 fun List<ImagesGallery>.getImagesListUrls() = this.map { it.composeImageUrl() }

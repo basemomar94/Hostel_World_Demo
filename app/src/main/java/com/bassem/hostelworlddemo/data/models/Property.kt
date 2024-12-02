@@ -1,5 +1,9 @@
 package com.bassem.hostelworlddemo.data.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Property(
     val district: District? = null,
     val freeCancellation: FreeCancellation? = null,
@@ -9,10 +13,8 @@ data class Property(
     val isFeatured: Boolean = false,
     val isNew: Boolean = false,
     val isPromoted: Boolean = false,
-    val latitude: Double? = null,
-    val longitude: Double? = null,
     val lowestPricePerNight: LowestPricePerNight? = null,
     val name: String = "",
     val ratingBreakdown: RatingBreakdown? = null,
     val overview: String = "",
-)
+):Parcelable

@@ -87,3 +87,4 @@ version-catalog-update = { id = "nl.littlerobots.version-catalog-update", versio
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization" }
 
+

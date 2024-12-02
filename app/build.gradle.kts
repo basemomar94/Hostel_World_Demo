@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.serialization)
+    id("kotlin-parcelize")
+
 
 }
 

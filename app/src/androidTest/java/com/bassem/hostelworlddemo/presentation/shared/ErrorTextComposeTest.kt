@@ -5,6 +5,7 @@ import com.bassem.hostelworlddemo.presentation.ui.shared.ErrorTextCompose
 import org.junit.Test
 
 class ErrorTextComposeTest:BaseComposeTest() {
+
     @Test
     fun test_error_message_displayed_when_error_is_not_null() {
         val testError = "test_error"

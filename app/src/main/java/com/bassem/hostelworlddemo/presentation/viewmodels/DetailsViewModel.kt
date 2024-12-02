@@ -25,8 +25,8 @@ class DetailsViewModel @Inject constructor(private val fetchExchangeRateRatesUse
 
     @VisibleForTesting
     fun fetchExchangeRates() = viewModelScope.launch {
-        fetchExchangeRateRatesUseCase().collect { resutlt ->
-            _exchangeRatesList.value = resutlt
+        fetchExchangeRateRatesUseCase().collect { result ->
+            _exchangeRatesList.value = result
         }
     }
 

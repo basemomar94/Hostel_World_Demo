@@ -10,5 +10,5 @@ fun Context.getExceptionMessage(e: Exception) = when (e) {
     is IOException -> getString(R.string.net_work_error)
     is SQLException -> getString(R.string.local_parsing_error)
     is JsonParseException -> getString(R.string.remote_parsing_error)
-    else -> getString(R.string.unexpected_error)
+    else -> e.message ?: getString(R.string.unexpected_error)
 }

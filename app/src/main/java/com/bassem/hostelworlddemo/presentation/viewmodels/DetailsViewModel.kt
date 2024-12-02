@@ -3,7 +3,7 @@ package com.bassem.hostelworlddemo.presentation.viewmodels
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bassem.hostelworlddemo.data.models.Result
+import com.bassem.hostelworlddemo.data.models.PropertyResult
 import com.bassem.hostelworlddemo.domain.usecases.FetchExchangeRateUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -16,8 +16,8 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailsViewModel @Inject constructor(private val fetchExchangeRateRatesUseCase: FetchExchangeRateUseCase) :
     ViewModel() {
-    private var _exchangeRatesList = MutableStateFlow<Result<Any?>?>(null)
-    val exchangeRatesList: Flow<Result<Any?>> get() = _exchangeRatesList.filterNotNull()
+    private var _exchangeRatesList = MutableStateFlow<PropertyResult<Any?>?>(null)
+    val exchangeRatesList: Flow<PropertyResult<Any?>> get() = _exchangeRatesList.filterNotNull()
 
     init {
         fetchExchangeRates()

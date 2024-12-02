@@ -2,7 +2,7 @@ package com.bassem.hostelworlddemo.domain.reposiory
 
 import android.content.Context
 import com.bassem.hostelworlddemo.data.api.ApiService
-import com.bassem.hostelworlddemo.data.models.Result
+import com.bassem.hostelworlddemo.data.models.PropertyResult
 import com.bassem.hostelworlddemo.domain.utils.getExceptionMessage
 import com.bassem.hostelworlddemo.domain.utils.trackApiCall
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -14,16 +14,16 @@ class PropertiesRepoImp @Inject constructor(
     @ApplicationContext private val context: Context
 ) : PropertiesRepo {
     override suspend fun getProperties() = flow {
-        emit(Result.Loading)
+        emit(PropertyResult.Loading)
         try {
             val result = trackApiCall(
                 action = "get-properties",
                 apiCall = { apiService.getProperties() },
                 service = apiService
             )
-            emit(Result.Success(result))
+            emit(PropertyResult.Success(result))
         } catch (e: Exception) {
-            emit(Result.Fail(context.getExceptionMessage(e)))
+            emit(PropertyResult.Fail(context.getExceptionMessage(e)))
         }
     }
 

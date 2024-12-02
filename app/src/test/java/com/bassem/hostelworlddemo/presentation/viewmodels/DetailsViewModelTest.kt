@@ -1,7 +1,7 @@
 package com.bassem.hostelworlddemo.presentation.viewmodels
 
 import com.bassem.hostelworlddemo.BaseTest
-import com.bassem.hostelworlddemo.data.models.Result
+import com.bassem.hostelworlddemo.data.models.PropertyResult
 import com.bassem.hostelworlddemo.domain.usecases.FetchExchangeRateUseCase
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -27,7 +27,7 @@ class DetailsViewModelTest : BaseTest() {
 
     @Test
     fun `fetch properties should emit loading first`() = runTest {
-        val loading = Result.Loading
+        val loading = PropertyResult.Loading
         coEvery { fetchExchangeRateUseCase.invoke() } returns flowOf(loading)
         detailsViewModel.fetchExchangeRates()
         val emittedResult = detailsViewModel.exchangeRatesList.first()
@@ -37,11 +37,11 @@ class DetailsViewModelTest : BaseTest() {
 
     @Test
     fun `fetch properties should emit success result`() = runTest {
-        val result = Result.Success(ratesResult)
-        coEvery { fetchExchangeRateUseCase.invoke() } returns flowOf(result)
+        val propertyResult = PropertyResult.Success(ratesResult)
+        coEvery { fetchExchangeRateUseCase.invoke() } returns flowOf(propertyResult)
         detailsViewModel.fetchExchangeRates()
         val emittedResult = detailsViewModel.exchangeRatesList.first()
         advanceUntilIdle()
-        Assertions.assertEquals(result, emittedResult)
+        Assertions.assertEquals(propertyResult, emittedResult)
     }
 }

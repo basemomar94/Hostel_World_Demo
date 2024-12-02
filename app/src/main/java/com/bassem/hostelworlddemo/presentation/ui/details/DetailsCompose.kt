@@ -22,12 +22,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.ExchangeData
+import com.bassem.hostelworlddemo.data.models.FreeCancellation
 import com.bassem.hostelworlddemo.data.models.ImagesGallery
 import com.bassem.hostelworlddemo.data.models.LowestPricePerNight
 import com.bassem.hostelworlddemo.data.models.Property
 import com.bassem.hostelworlddemo.data.models.Rates
 import com.bassem.hostelworlddemo.data.models.RatingBreakdown
-import com.bassem.hostelworlddemo.data.models.Result
+import com.bassem.hostelworlddemo.data.models.PropertyResult
 import com.bassem.hostelworlddemo.presentation.ui.home.PropertyName
 import com.bassem.hostelworlddemo.presentation.ui.shared.ErrorTextCompose
 import com.bassem.hostelworlddemo.presentation.ui.shared.LoadingIndicator
@@ -48,7 +49,7 @@ fun DetailsScreenPreview() {
         price = null,
         address = "Cairo",
         rates = Rates(EUR = 1.0, USD = 0.9, GBP = 1.2),
-        cancellation = "Free Cancellation",
+        cancellation = FreeCancellation(description = "test cancel", label = "cancel"),
     )
 }
 
@@ -58,15 +59,15 @@ fun DetailsScreen(
     modifier: Modifier = Modifier,
     viewModel: DetailsViewModel = hiltViewModel(),
 ) {
-    val result by viewModel.exchangeRatesList.collectAsState(initial = Result.Loading)
-    when (result) {
-        is Result.Loading -> {
+    val propertyResult by viewModel.exchangeRatesList.collectAsState(initial = PropertyResult.Loading)
+    when (propertyResult) {
+        is PropertyResult.Loading -> {
             LoadingIndicator()
         }
 
-        is Result.Success -> {
-            val successResult = (result as Result.Success<Any?>).data as? ExchangeData
-            if (successResult != null) {
+        is PropertyResult.Success -> {
+            val successPropertyResult = (propertyResult as PropertyResult.Success<Any?>).data as? ExchangeData
+            if (successPropertyResult != null) {
                 with(property) {
                     DetailsCompose(
                         propertyName = name,
@@ -76,9 +77,8 @@ fun DetailsScreen(
                         price = lowestPricePerNight,
                         address = district.getCity(),
                         modifier = modifier,
-                        rates = successResult.rates,
-                        cancellation = freeCancellation?.description ?: "N/A",
-                    )
+                        rates = successPropertyResult.rates,
+                        cancellation = freeCancellation)
 
                 }
 
@@ -88,8 +88,8 @@ fun DetailsScreen(
 
         }
 
-        is Result.Fail -> {
-            ErrorTextCompose(message = (result as Result.Fail).reasons)
+        is PropertyResult.Fail -> {
+            ErrorTextCompose(message = (propertyResult as PropertyResult.Fail).reasons)
         }
     }
 
@@ -104,7 +104,7 @@ fun DetailsCompose(
     price: LowestPricePerNight?,
     address: String,
     rates: Rates,
-    cancellation: String,
+    cancellation: FreeCancellation?,
     modifier: Modifier = Modifier,
 ) {
     val scrollState = rememberScrollState()

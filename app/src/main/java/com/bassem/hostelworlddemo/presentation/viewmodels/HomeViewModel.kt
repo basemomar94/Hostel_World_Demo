@@ -3,7 +3,7 @@ package com.bassem.hostelworlddemo.presentation.viewmodels
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bassem.hostelworlddemo.data.models.Result
+import com.bassem.hostelworlddemo.data.models.PropertyResult
 import com.bassem.hostelworlddemo.domain.usecases.FetchPropertiesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -16,8 +16,8 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val fetchPropertiesUseCase: FetchPropertiesUseCase) :
     ViewModel() {
-    private var _propertiesList = MutableStateFlow<Result<Any?>?>(null)
-    val propertiesList: Flow<Result<Any?>> get() = _propertiesList.filterNotNull()
+    private var _propertiesList = MutableStateFlow<PropertyResult<Any?>?>(null)
+    val propertiesList: Flow<PropertyResult<Any?>> get() = _propertiesList.filterNotNull()
 
     init {
         fetchProperties()

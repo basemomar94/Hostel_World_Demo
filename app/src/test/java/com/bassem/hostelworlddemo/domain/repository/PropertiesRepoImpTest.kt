@@ -3,7 +3,7 @@ package com.bassem.hostelworlddemo.domain.repository
 import android.content.Context
 import com.bassem.hostelworlddemo.BaseTest
 import com.bassem.hostelworlddemo.data.api.ApiService
-import com.bassem.hostelworlddemo.data.models.Result
+import com.bassem.hostelworlddemo.data.models.PropertyResult
 import com.bassem.hostelworlddemo.domain.reposiory.PropertiesRepoImp
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -27,8 +27,8 @@ class PropertiesRepoImpTest : BaseTest() {
     fun `getting exchange rates should emmit loading then result`() = runTest {
         coEvery { apiService.getProperties() } returns propertiesResult
         val actualList = repoImp.getProperties().toList()
-        Assertions.assertTrue(actualList[0] is Result.Loading)
-        Assertions.assertTrue(actualList[1] is Result.Success)
-        Assertions.assertTrue((actualList[1] as Result.Success).data == propertiesResult)
+        Assertions.assertTrue(actualList[0] is PropertyResult.Loading)
+        Assertions.assertTrue(actualList[1] is PropertyResult.Success)
+        Assertions.assertTrue((actualList[1] as PropertyResult.Success).data == propertiesResult)
     }
 }

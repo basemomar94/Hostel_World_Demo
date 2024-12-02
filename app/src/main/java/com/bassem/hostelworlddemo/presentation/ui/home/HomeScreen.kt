@@ -10,7 +10,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.Property
-import com.bassem.hostelworlddemo.data.models.Result
+import com.bassem.hostelworlddemo.data.models.PropertyResult
 import com.bassem.hostelworlddemo.data.models.ResultData
 import com.bassem.hostelworlddemo.presentation.ui.shared.ErrorTextCompose
 import com.bassem.hostelworlddemo.presentation.ui.shared.LoadingIndicator
@@ -24,22 +24,22 @@ fun HomeScreen(
     modifier: Modifier = Modifier
 ) {
     Logger("HomeScreen")
-    val result by viewModel.propertiesList.collectAsState(initial = Result.Loading)
+    val propertyResult by viewModel.propertiesList.collectAsState(initial = PropertyResult.Loading)
 
     Column(
         modifier = modifier
             .fillMaxSize()
     ) {
-        when (result) {
-            is Result.Loading -> {
+        when (propertyResult) {
+            is PropertyResult.Loading -> {
                 LoadingIndicator()
             }
-            is Result.Success -> {
-                val successResult = (result as Result.Success<Any?>).data as? ResultData
-                if (successResult != null) {
-                    val propertiesList = successResult.properties
+            is PropertyResult.Success -> {
+                val successPropertyResult = (propertyResult as PropertyResult.Success<Any?>).data as? ResultData
+                if (successPropertyResult != null) {
+                    val propertiesList = successPropertyResult.properties
                     if (propertiesList.isNotEmpty()) {
-                        val city = successResult.location?.city
+                        val city = successPropertyResult.location?.city
                         if (city!=null){
                             CityCountryCard(city = city.name, country = city.country)
                         }
@@ -55,8 +55,8 @@ fun HomeScreen(
                 }
             }
 
-            is Result.Fail -> {
-                ErrorTextCompose(message = (result as Result.Fail).reasons)
+            is PropertyResult.Fail -> {
+                ErrorTextCompose(message = (propertyResult as PropertyResult.Fail).reasons)
             }
         }
     }

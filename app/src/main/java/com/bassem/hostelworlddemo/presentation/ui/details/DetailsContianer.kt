@@ -13,13 +13,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.bassem.hostelworlddemo.R
+import com.bassem.hostelworlddemo.data.models.FreeCancellation
 
 @Composable
-fun DetailsContainer(overview: String, cancellation: String) {
+fun DetailsContainer(overview: String, cancellation: FreeCancellation?) {
     var selectedTabIndex by remember { mutableIntStateOf(0) }
 
     val tabTitles =
-        listOf(stringResource(R.string.over_view), stringResource(R.string.cancellation))
+        listOf(
+            stringResource(R.string.over_view),
+            cancellation?.label ?: stringResource(R.string.cancellation)
+        )
 
     Column(modifier = Modifier.fillMaxSize()) {
         TabRow(selectedTabIndex = selectedTabIndex) {
@@ -33,7 +37,7 @@ fun DetailsContainer(overview: String, cancellation: String) {
         }
         when (selectedTabIndex) {
             0 -> DetailsText(overview)
-            1 -> DetailsText(cancellation)
+            1 -> DetailsText(cancellation?.description ?: "N/A")
         }
     }
 }

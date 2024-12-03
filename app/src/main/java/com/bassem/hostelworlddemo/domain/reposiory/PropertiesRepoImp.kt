@@ -3,6 +3,7 @@ package com.bassem.hostelworlddemo.domain.reposiory
 import android.content.Context
 import com.bassem.hostelworlddemo.data.api.ApiService
 import com.bassem.hostelworlddemo.data.models.PropertyResult
+import com.bassem.hostelworlddemo.domain.reposiory.RepoConstants.ACTION_PROPERTIES
 import com.bassem.hostelworlddemo.domain.utils.getExceptionMessage
 import com.bassem.hostelworlddemo.domain.utils.trackApiCall
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -17,7 +18,7 @@ class PropertiesRepoImp @Inject constructor(
         emit(PropertyResult.Loading)
         try {
             val result = trackApiCall(
-                action = "get-properties",
+                action = ACTION_PROPERTIES,
                 apiCall = { apiService.getProperties() },
                 service = apiService
             )

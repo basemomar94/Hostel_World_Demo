@@ -1,6 +1,6 @@
 package com.bassem.hostelworlddemo.di
 
-import com.bassem.hostelworlddemo.utils.AppConstant.BASE_URL
+import com.bassem.hostelworlddemo.data.api.ApiConstants.BASE_URL
 import com.bassem.hostelworlddemo.data.api.ApiService
 import dagger.Module
 import dagger.Provides

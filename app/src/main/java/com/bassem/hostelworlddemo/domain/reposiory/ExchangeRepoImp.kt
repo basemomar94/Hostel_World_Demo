@@ -3,6 +3,7 @@ package com.bassem.hostelworlddemo.domain.reposiory
 import android.content.Context
 import com.bassem.hostelworlddemo.data.api.ApiService
 import com.bassem.hostelworlddemo.data.models.PropertyResult
+import com.bassem.hostelworlddemo.domain.reposiory.RepoConstants.ACTION_EXCHANGE_RATES
 import com.bassem.hostelworlddemo.domain.utils.getExceptionMessage
 import com.bassem.hostelworlddemo.domain.utils.trackApiCall
 import com.bassem.hostelworlddemo.utils.Logger
@@ -20,7 +21,7 @@ class ExchangeRepoImp @Inject constructor(
         emit(PropertyResult.Loading)
         try {
             val result = trackApiCall(
-                action = "get-exchange-rates",
+                action = ACTION_EXCHANGE_RATES,
                 apiCall = { apiService.getExchangeRates() },
                 service = apiService
             )

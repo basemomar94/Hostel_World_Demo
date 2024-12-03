@@ -5,9 +5,8 @@ import com.bassem.hostelworlddemo.data.models.Property
 import com.bassem.hostelworlddemo.data.models.RatingBreakdown
 
 object AppConstant {
-    const val BASE_URL = "https://gist.githubusercontent.com/PedroTrabulo-Hostelworld/"
 
-    internal val cairoHotel =
+    private val cairoHotel =
         Property(
             id = 2,
             name = "Cairo Hotel",
@@ -17,7 +16,7 @@ object AppConstant {
             ratingBreakdown = RatingBreakdown(average = 97),
             lowestPricePerNight = LowestPricePerNight("USD", "50"),
         )
-    internal val sphinxHotel =
+    private val sphinxHotel =
         Property(
             id = 0,
             name = "Sphinx Hotel",

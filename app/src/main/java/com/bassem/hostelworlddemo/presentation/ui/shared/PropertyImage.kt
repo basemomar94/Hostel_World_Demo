@@ -21,13 +21,17 @@ private fun PropertyImagePreview() {
 @Composable
 fun PropertyImage(imageUrl: String?, modifier: Modifier) {
     GlideSubcomposition(
-        model = imageUrl,
+        model = imageUrl ?: R.drawable.error,
         modifier = modifier,
     ) {
         when (state) {
             is RequestState.Failure -> Image(painterResource(id = R.drawable.error), "failure")
             is RequestState.Loading -> LoadingIndicator()
-            is RequestState.Success -> Image(painter, contentDescription = null, contentScale = ContentScale.Crop)
+            is RequestState.Success -> Image(
+                painter,
+                contentDescription = null,
+                contentScale = ContentScale.Crop
+            )
         }
     }
 }

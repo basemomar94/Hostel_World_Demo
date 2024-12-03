@@ -65,7 +65,7 @@ fun Context.hasNotificationPermission(): Boolean {
     }
 }
 
-fun Context.scheduleHourlyWork() {
+fun Context.scheduleDailyWork() {
     val constraints = Constraints.Builder()
         .setRequiredNetworkType(NetworkType.CONNECTED)
         .build()

@@ -16,8 +16,9 @@ abstract class BaseComposeTest {
     @get:Rule
     val composeTestRule = createComposeRule()
 
-    internal val property =
+    internal val cairoHotel =
         Property(
+            id = 2,
             name = "Cairo Hotel",
             isNew = true,
             isFeatured = false,
@@ -25,6 +26,23 @@ abstract class BaseComposeTest {
             ratingBreakdown = RatingBreakdown(average = 97),
             lowestPricePerNight = LowestPricePerNight("USD", "50"),
         )
+    internal val sphinxHotel =
+        Property(
+            id = 0,
+            name = "Sphinx Hotel",
+            isNew = true,
+            isFeatured = false,
+            isPromoted = true,
+            ratingBreakdown = RatingBreakdown(
+                average = 83,
+                security = 90,
+                clean = 58,
+                location = 99
+            ),
+            lowestPricePerNight = LowestPricePerNight("EUR", "88"),
+        )
+
+    internal val propertyList = listOf(cairoHotel, sphinxHotel)
 
     @Before
     open fun setUp() {

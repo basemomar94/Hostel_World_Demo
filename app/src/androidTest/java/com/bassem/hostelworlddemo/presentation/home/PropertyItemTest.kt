@@ -11,13 +11,13 @@ class PropertyItemTest : BaseComposeTest() {
     override fun setUp() {
         super.setUp()
         composeTestRule.setContent {
-            PropertyItem(property = property, onCardClick = { isPropertyClicked = true })
+            PropertyItem(property = cairoHotel, onCardClick = { isPropertyClicked = true })
         }
     }
 
     @Test
     fun test_item_display_property_name() {
-        assertTextIsDisplayed(property.name)
+        assertTextIsDisplayed(cairoHotel.name)
     }
 
     @Test
@@ -33,7 +33,7 @@ class PropertyItemTest : BaseComposeTest() {
 
     @Test
     fun test_item_property_clicked() {
-        clickNodeWithText(property.name)
+        clickNodeWithText(cairoHotel.name)
         assert(isPropertyClicked)
     }
 

@@ -10,11 +10,12 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.Property
+import com.bassem.hostelworlddemo.utils.AppConstant.propertyList
 
 @Preview(showBackground = true)
 @Composable
 fun HomeListPreview() {
-    HomeList(propertiesList = listOf(), onClick = {})
+    HomeList(propertiesList = propertyList, onClick = {})
 }
 
 @Composable
@@ -22,7 +23,7 @@ fun HomeList(
     propertiesList: List<Property>,
     onClick: (Property) -> Unit,
 ) {
-    LazyColumn (
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(horizontal = dimensionResource(id = R.dimen.default_padding))

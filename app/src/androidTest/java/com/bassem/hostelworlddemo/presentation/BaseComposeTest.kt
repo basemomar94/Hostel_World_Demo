@@ -8,6 +8,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import com.bassem.hostelworlddemo.data.models.LowestPricePerNight
 import com.bassem.hostelworlddemo.data.models.Property
+import com.bassem.hostelworlddemo.data.models.RatingBreakdown
 import org.junit.Before
 import org.junit.Rule
 
@@ -20,7 +21,8 @@ abstract class BaseComposeTest {
             name = "Cairo Hotel",
             isNew = true,
             isFeatured = false,
-            isPromoted = true,
+            isPromoted = false,
+            ratingBreakdown = RatingBreakdown(average = 97),
             lowestPricePerNight = LowestPricePerNight("USD", "50"),
         )
 

@@ -21,6 +21,17 @@ class PropertyItemTest : BaseComposeTest() {
     }
 
     @Test
+    fun test_item_display_property_rating() {
+        assertTextIsDisplayed("9.7")
+    }
+
+    @Test
+    fun test_item_display_property_new() {
+        assertTextIsDisplayed("NEW")
+    }
+
+
+    @Test
     fun test_item_property_clicked() {
         clickNodeWithText(property.name)
         assert(isPropertyClicked)

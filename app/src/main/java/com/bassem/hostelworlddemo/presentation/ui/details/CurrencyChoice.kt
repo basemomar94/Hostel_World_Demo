@@ -16,7 +16,7 @@ import com.bassem.hostelworlddemo.R
 
 @Preview
 @Composable
-fun CurrencyChoicePreview() {
+private fun CurrencyChoicePreview() {
     CurrencyChoice("EUR", {})
 }
 

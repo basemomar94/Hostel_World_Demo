@@ -22,7 +22,7 @@ import com.bassem.hostelworlddemo.R
 
 @Preview
 @Composable
-fun CityCountryCardPreview() {
+private fun CityCountryCardPreview() {
     CityCountryCard("Cairo", "Egypt")
 }
 

@@ -1,14 +1,15 @@
 package com.bassem.hostelworlddemo.presentation.ui.shared
 
+import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.bassem.hostelworlddemo.R
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
-import com.bumptech.glide.integration.compose.GlideImage
-import com.bumptech.glide.integration.compose.placeholder
+import com.bumptech.glide.integration.compose.GlideSubcomposition
+import com.bumptech.glide.integration.compose.RequestState
 
 @Preview(showBackground = true)
 @Composable
@@ -19,15 +20,18 @@ private fun PropertyImagePreview() {
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun PropertyImage(imageUrl: String?, modifier: Modifier) {
-    GlideImage(
-        model = imageUrl,
-        contentDescription = stringResource(id = R.string.property_image),
+    GlideSubcomposition(
+        model = imageUrl ?: R.drawable.error,
         modifier = modifier,
-        contentScale = ContentScale.Crop,
-        loading = placeholder({
-            LoadingIndicator()
-        }),
-        failure = placeholder(R.drawable.error),
-
-        )
+    ) {
+        when (state) {
+            is RequestState.Failure -> Image(painterResource(id = R.drawable.error), "failure")
+            is RequestState.Loading -> LoadingIndicator()
+            is RequestState.Success -> Image(
+                painter,
+                contentDescription = null,
+                contentScale = ContentScale.Crop
+            )
+        }
+    }
 }

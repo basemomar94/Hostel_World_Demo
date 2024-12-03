@@ -15,8 +15,7 @@ import com.bassem.hostelworlddemo.R
 @Preview
 @Composable
 private fun OverViewComposePreview() {
-
-
+DetailsText("test text")
 }
 
 @Composable

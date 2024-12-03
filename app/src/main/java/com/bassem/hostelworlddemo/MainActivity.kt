@@ -19,7 +19,7 @@ import com.bassem.hostelworlddemo.presentation.ui.theme.HostelWorldDemoTheme
 import com.bassem.hostelworlddemo.utils.Logger
 import com.bassem.hostelworlddemo.utils.createNotificationChannel
 import com.bassem.hostelworlddemo.utils.hasNotificationPermission
-import com.bassem.hostelworlddemo.utils.scheduleHourlyWork
+import com.bassem.hostelworlddemo.utils.scheduleDailyWork
 import dagger.hilt.android.AndroidEntryPoint
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
 
         if (hasNotificationPermission()) {
             logger.i("App has notification permission")
-            scheduleHourlyWork()
+            scheduleDailyWork()
             createNotificationChannel()
         } else {
             requestNotificationPermission()
@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             if (isGranted) {
                 logger.i("Permission granted")
-                scheduleHourlyWork()
+                scheduleDailyWork()
                 createNotificationChannel()
             } else {
                 logger.i("Permission denied")

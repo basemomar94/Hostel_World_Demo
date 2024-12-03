@@ -14,7 +14,7 @@ import com.bassem.hostelworlddemo.utils.AppConstant.propertyList
 
 @Preview(showBackground = true)
 @Composable
-fun HomeListPreview() {
+private fun HomeListPreview() {
     HomeList(propertiesList = propertyList, onClick = {})
 }
 

@@ -40,7 +40,7 @@ import com.bassem.hostelworlddemo.presentation.viewmodels.DetailsViewModel
 
 @Preview
 @Composable
-fun DetailsScreenPreview() {
+private fun DetailsScreenPreview() {
     DetailsCompose(
         propertyName = "Alex Hostel",
         images = listOf(),
@@ -66,7 +66,8 @@ fun DetailsScreen(
         }
 
         is PropertyResult.Success -> {
-            val successPropertyResult = (propertyResult as PropertyResult.Success<Any?>).data as? ExchangeData
+            val successPropertyResult =
+                (propertyResult as PropertyResult.Success<Any?>).data as? ExchangeData
             if (successPropertyResult != null) {
                 with(property) {
                     DetailsCompose(
@@ -78,7 +79,8 @@ fun DetailsScreen(
                         address = district.getCity(),
                         modifier = modifier,
                         rates = successPropertyResult.rates,
-                        cancellation = freeCancellation)
+                        cancellation = freeCancellation
+                    )
 
                 }
 

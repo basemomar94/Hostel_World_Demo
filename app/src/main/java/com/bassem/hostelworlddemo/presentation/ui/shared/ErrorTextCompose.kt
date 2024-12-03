@@ -14,7 +14,7 @@ import com.bassem.hostelworlddemo.R
 
 @Preview(showBackground = true)
 @Composable
-fun ErrorTextComposePreview() {
+private fun ErrorTextComposePreview() {
     ErrorTextCompose(message = "Test Error")
 }
 

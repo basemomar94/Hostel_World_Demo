@@ -1,5 +1,8 @@
 package com.bassem.hostelworlddemo.presentation.utils
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import com.bassem.hostelworlddemo.data.models.District
 import com.bassem.hostelworlddemo.data.models.ImagesGallery
 import com.bassem.hostelworlddemo.data.models.LowestPricePerNight
@@ -7,6 +10,7 @@ import com.bassem.hostelworlddemo.data.models.Rates
 import com.bassem.hostelworlddemo.presentation.ui.theme.green
 import com.bassem.hostelworlddemo.presentation.ui.theme.red
 import com.bassem.hostelworlddemo.presentation.ui.theme.yellow
+import com.bassem.hostelworlddemo.utils.Logger
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -56,3 +60,16 @@ fun String?.convert(currency: String, rates: Rates): String {
 }
 
 fun Double.roundToOneDecimals() = BigDecimal(this).setScale(1, RoundingMode.HALF_UP).toString()
+
+fun Context.openInMap(latitude: Double, longitude: Double) {
+    val logger = Logger("openInMap")
+    try {
+        val gmmIntentUri = Uri.parse("geo:$latitude,$longitude")
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        startActivity(mapIntent)
+    } catch (e:Exception){
+        logger.e(e.message?:"no app found")
+    }
+
+}
+

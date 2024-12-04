@@ -26,10 +26,7 @@ fun CurrencyChoice(
     onCurrencyChange: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Row(
-        modifier = modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Center
-    ) {
+    Row(modifier = modifier) {
         listOf("EUR", "USD", "GBP").forEach { currency ->
             FilterChip(
                 selected = currency == selectedCurrency,

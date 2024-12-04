@@ -3,6 +3,7 @@ package com.bassem.hostelworlddemo.presentation.utils
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import androidx.annotation.VisibleForTesting
 import com.bassem.hostelworlddemo.data.models.District
 import com.bassem.hostelworlddemo.data.models.ImagesGallery
 import com.bassem.hostelworlddemo.data.models.LowestPricePerNight
@@ -59,6 +60,7 @@ fun String?.convert(currency: String, rates: Rates): String {
     }
 }
 
+@VisibleForTesting
 fun Double.roundToOneDecimals() = BigDecimal(this).setScale(1, RoundingMode.HALF_UP).toString()
 
 fun Context.openInMap(latitude: Double, longitude: Double) {

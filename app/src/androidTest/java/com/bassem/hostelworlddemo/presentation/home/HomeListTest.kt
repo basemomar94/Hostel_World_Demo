@@ -20,7 +20,7 @@ class HomeListTest : BaseComposeTest() {
     fun test_all_properties_are_displayed() {
         propertyList.forEach { prop ->
             assertTextIsDisplayed(prop.name)
-            assertTextIsDisplayed(prop.ratingBreakdown?.average.getRating().toString())
+            assertTextIsDisplayed("${prop.overallRating?.overall.getRating()}")
         }
     }
 

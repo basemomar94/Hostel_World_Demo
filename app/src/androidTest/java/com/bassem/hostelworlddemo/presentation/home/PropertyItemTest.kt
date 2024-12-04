@@ -22,7 +22,7 @@ class PropertyItemTest : BaseComposeTest() {
 
     @Test
     fun test_item_display_property_rating() {
-        assertTextIsDisplayed("9.7")
+        assertTextIsDisplayed("5.5")
     }
 
     @Test

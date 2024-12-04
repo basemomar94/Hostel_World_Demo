@@ -14,7 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.bassem.hostelworlddemo.presentation.ui.home.Navigation
+import com.bassem.hostelworlddemo.presentation.ui.shared.Navigation
 import com.bassem.hostelworlddemo.presentation.ui.theme.HostelWorldDemoTheme
 import com.bassem.hostelworlddemo.utils.Logger
 import com.bassem.hostelworlddemo.utils.createNotificationChannel

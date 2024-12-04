@@ -1,9 +1,11 @@
 package com.bassem.hostelworlddemo.presentation.ui.shared
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -36,14 +38,21 @@ fun LabelText(text: String, backgroundColor: Color, modifier: Modifier = Modifie
         modifier = modifier
             .background(
                 color = backgroundColor,
-                shape = RoundedCornerShape(topStart = dimensionResource(R.dimen.card_corner_radius))
+                shape = RoundedCornerShape(
+                    topStart = dimensionResource(R.dimen.card_corner_radius),
+                    topEnd = dimensionResource(R.dimen.card_corner_radius)
+                )
             )
             .padding(
-                horizontal = dimensionResource(R.dimen.small_padding),
-                vertical = dimensionResource(R.dimen.small_padding)
+                horizontal = dimensionResource(R.dimen.default_padding),
+                vertical = dimensionResource(R.dimen.default_padding)
             )
+            .fillMaxWidth()
     ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = modifier.align(Alignment.Center)
+        ) {
             Icon(
                 imageVector = Icons.Default.CheckCircle,
                 contentDescription = stringResource(R.string.featured),

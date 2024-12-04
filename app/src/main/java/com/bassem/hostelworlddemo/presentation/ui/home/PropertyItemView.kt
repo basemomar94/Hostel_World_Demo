@@ -141,7 +141,7 @@ private fun PropertyItemCompose(
             PropertyName(name)
             Row(
                 modifier = modifier
-                    .padding(dimensionResource(R.dimen.small_padding))
+                    .padding(dimensionResource(R.dimen.default_padding))
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,

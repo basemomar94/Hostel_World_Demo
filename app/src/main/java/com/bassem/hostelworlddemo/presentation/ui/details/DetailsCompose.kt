@@ -50,6 +50,8 @@ private fun DetailsScreenPreview() {
         address = "Cairo",
         rates = Rates(EUR = 1.0, USD = 0.9, GBP = 1.2),
         cancellation = FreeCancellation(description = "test cancel", label = "cancel"),
+        latitude = 5.5,
+        longitude = 6.1
     )
 }
 
@@ -79,7 +81,9 @@ fun DetailsScreen(
                         address = district.getCity(),
                         modifier = modifier,
                         rates = successPropertyResult.rates,
-                        cancellation = freeCancellation
+                        cancellation = freeCancellation,
+                        latitude = latitude,
+                        longitude = longitude
                     )
 
                 }
@@ -106,6 +110,8 @@ fun DetailsCompose(
     price: LowestPricePerNight?,
     address: String,
     rates: Rates,
+    latitude: Double?,
+    longitude: Double?,
     cancellation: FreeCancellation?,
     modifier: Modifier = Modifier,
 ) {
@@ -138,11 +144,15 @@ fun DetailsCompose(
                 drawable = R.drawable.location
             )
         }
-        CurrencyChoice(
-            selectedCurrency = selectedCurrency,
-            onCurrencyChange = { selectedCurrency = it },
-            modifier = Modifier.padding(vertical = dimensionResource(R.dimen.default_padding))
-        )
+        Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
+            CurrencyChoice(
+                selectedCurrency = selectedCurrency,
+                onCurrencyChange = { selectedCurrency = it },
+                modifier = Modifier.padding(vertical = dimensionResource(R.dimen.default_padding))
+            )
+            OpenInMapsButton(latitude = latitude, longitude = longitude, modifier = Modifier)
+        }
+
         if (rating != null) {
             RatingContainer(rating)
         }

@@ -47,5 +47,8 @@
     <string name="euro">EUR</string>
     <string name="usd">USD</string>
     <string name="gbp">GBP</string>
+    <string name="star">Star</string>
+    <string name="install_maps">Please install google maps and try again</string>
+    <string name="open_in_map">Open in Maps</string>
 
 </resources>

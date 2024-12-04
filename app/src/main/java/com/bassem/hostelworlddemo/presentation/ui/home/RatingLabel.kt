@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.presentation.utils.getRatingColor
@@ -44,7 +45,7 @@ fun RatingLabel(rating: Double, modifier: Modifier = Modifier) {
     ) {
         Icon(
             imageVector = Icons.Default.Star,
-            contentDescription = "Featured",
+            contentDescription = stringResource(R.string.star),
             tint = Color.White,
             modifier = modifier.size(dimensionResource(R.dimen.icon_size))
         )

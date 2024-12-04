@@ -17,7 +17,7 @@ import com.bassem.hostelworlddemo.R
 @Preview
 @Composable
 private fun PropertyNamePreview() {
-    PropertyName("Damnhour Hostel")
+    PropertyName("Dublin Hostel")
 }
 
 @Composable

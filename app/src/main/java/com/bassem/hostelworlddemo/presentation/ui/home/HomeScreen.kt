@@ -11,7 +11,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.Property
 import com.bassem.hostelworlddemo.data.models.PropertyResult
-import com.bassem.hostelworlddemo.data.models.ResultData
+import com.bassem.hostelworlddemo.data.models.PropertiesResultData
 import com.bassem.hostelworlddemo.presentation.ui.shared.ErrorTextCompose
 import com.bassem.hostelworlddemo.presentation.ui.shared.LoadingIndicator
 import com.bassem.hostelworlddemo.presentation.viewmodels.HomeViewModel
@@ -35,7 +35,7 @@ fun HomeScreen(
                 LoadingIndicator()
             }
             is PropertyResult.Success -> {
-                val successPropertyResult = (propertyResult as PropertyResult.Success<Any?>).data as? ResultData
+                val successPropertyResult = (propertyResult as PropertyResult.Success<Any?>).data as? PropertiesResultData
                 if (successPropertyResult != null) {
                     val propertiesList = successPropertyResult.properties
                     if (propertiesList.isNotEmpty()) {

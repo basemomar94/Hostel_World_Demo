@@ -17,4 +17,5 @@ data class Property(
     val name: String = "",
     val ratingBreakdown: RatingBreakdown? = null,
     val overview: String = "",
-):Parcelable
+    val overallRating: OverallRating? = null
+) : Parcelable

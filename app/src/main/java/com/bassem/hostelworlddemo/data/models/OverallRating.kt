@@ -1,6 +1,9 @@
 package com.bassem.hostelworlddemo.data.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class OverallRating(
-    val numberOfRatings: String,
     val overall: Int
-)
+):Parcelable

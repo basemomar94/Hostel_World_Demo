@@ -56,7 +56,7 @@ fun PropertyItem(property: Property, onCardClick: () -> Unit) {
             name = name,
             imageUrl = imagesGallery.getRandomImageUrl(),
             isFeatured = isFeatured,
-            rating = ratingBreakdown?.average.getRating(),
+            rating = overallRating?.overall.getRating(),
             lowestPrice = lowestPricePerNight.getPrice(),
             isNew = isNew,
             isPrompt = isPromoted,
@@ -102,10 +102,7 @@ private fun PropertyItemCompose(
                             dimensionResource(id = R.dimen.image_height)
                         )
                 )
-                Row(
-                    modifier = modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
+                Row {
                     when {
                         isFeatured -> LabelText(
                             modifier = modifier.align(Alignment.Top),

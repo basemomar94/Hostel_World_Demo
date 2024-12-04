@@ -44,7 +44,7 @@ private fun DetailsScreenPreview() {
     DetailsCompose(
         propertyName = "Alex Hostel",
         images = listOf(),
-        overview = "overview test test test test dadad daadad adadd",
+        overview = "overview test test test test  hotel alex",
         rating = RatingBreakdown(),
         price = null,
         address = "Cairo",

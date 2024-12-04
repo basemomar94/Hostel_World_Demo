@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.bassem.hostelworlddemo.R
 
@@ -30,7 +31,11 @@ fun CurrencyChoice(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Center
     ) {
-        listOf("EUR", "USD", "GBP").forEach { currency ->
+        listOf(
+            stringResource(R.string.euro),
+            stringResource(R.string.usd),
+            stringResource(R.string.gbp)
+        ).forEach { currency ->
             FilterChip(
                 selected = currency == selectedCurrency,
                 onClick = { onCurrencyChange(currency) },

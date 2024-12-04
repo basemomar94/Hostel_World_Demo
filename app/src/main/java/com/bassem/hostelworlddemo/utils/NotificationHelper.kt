@@ -43,10 +43,10 @@ fun Context.sendBackgroundNotification() {
         getString(R.string.default_notification_channel_id)
     )
         .setSmallIcon(R.drawable.hotel_world)
-        .setContentTitle(getString(R.string.notification_title))
+        .setContentTitle(getRandomNotification().first)
         .setOnlyAlertOnce(true)
         .setOngoing(false)
-        .setContentText(getString(R.string.notification_text))
+        .setContentText(getRandomNotification().second)
         .setAutoCancel(false)
         .build()
     val notificationManger = NotificationManagerCompat.from(this)
@@ -79,4 +79,22 @@ fun Context.scheduleDailyWork() {
         ExistingPeriodicWorkPolicy.UPDATE,
         workRequest
     )
+}
+
+fun Context.getRandomNotification(): Pair<String, String> {
+    val marketingMap = mapOf(
+        getString(R.string.notification_title) to getString(R.string.notification_text),
+        getString(R.string.notification_title1) to getString(R.string.notification_text1),
+        getString(R.string.notification_title2) to getString(R.string.notification_text2),
+        getString(R.string.notification_title3) to getString(R.string.notification_text3),
+        getString(R.string.notification_title4) to getString(R.string.notification_text4),
+        getString(R.string.notification_title5) to getString(R.string.notification_text5),
+        getString(R.string.notification_title6) to getString(R.string.notification_text6),
+        getString(R.string.notification_title7) to getString(R.string.notification_text7),
+        getString(R.string.notification_title8) to getString(R.string.notification_text8),
+        getString(R.string.notification_title9) to getString(R.string.notification_text9),
+        getString(R.string.notification_title10) to getString(R.string.notification_text10),
+    )
+    val randomEntry = marketingMap.entries.random()
+    return Pair(randomEntry.key, randomEntry.value)
 }

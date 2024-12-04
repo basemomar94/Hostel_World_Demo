@@ -24,4 +24,25 @@
     <string name="default_notification_channel_name">marketing</string>
     <string name="notification_title">Get Away for Less! ✈️🌍</string>
     <string name="notification_text">Book your next hostel stay and enjoy up to 30% off this weekend only! 🏨✨</string>
+    <string name="notification_title1">Your Dream Stay Awaits! 🏕️🌟</string>
+    <string name="notification_text1">Explore top-rated hostels and book your next adventure today! 📍✈️</string>
+    <string name="notification_title2">Exclusive Offer for Travelers! 🌎✨</string>
+    <string name="notification_text2">Book now and enjoy up to 25% off select hostels this week! 🏨🛏️</string>
+    <string name="notification_title3">Adventure Calls! 🌲⛺</string>
+    <string name="notification_text3">Find cozy and affordable stays for your next trip. Deals just for you! 🚶‍♀️📖</string>
+    <string name="notification_title4">Weekend Sale! 🏝️⏳</string>
+    <string name="notification_text4">Plan your getaway now and save big on hostel bookings! Limited-time offer! 🛎️💼</string>
+    <string name="notification_title5">Stay More, Pay Less! 🏨🎉</string>
+    <string name="notification_text5">Enjoy discounts on extended stays at your favorite hostels. Book now! 🌟📆</string>
+    <string name="notification_title6">Your Next Adventure Starts Here! 🚀🌍</string>
+    <string name="notification_text6">Check out exclusive hostel deals and start packing for your dream destination. 🧳✨</string>
+    <string name="notification_title7">Save on Your Stay! 🛏️💸</string>
+    <string name="notification_text7">Discover hostels at unbeatable prices this season. Hurry, deals end soon! 🕒📢</string>
+    <string name="notification_title8">Travel Smarter, Stay Better! 🧭🎒</string>
+    <string name="notification_text8">Book now and find hostels with everything you need for an amazing trip! 🌟📌</string>
+    <string name="notification_title9">Limited-Time Hostel Deals! ⏰🎁</string>
+    <string name="notification_text9">Unlock up to 40% off on top hostels worldwide. Book today! 🌍💼</string>
+    <string name="notification_title10">Find Your Perfect Stay! 🛎️✨</string>
+    <string name="notification_text10">Explore thousands of hostels for every budget and style. Book now! 🏕️💖</string>
+
 </resources>

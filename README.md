@@ -1,5 +1,6 @@
 ### Hostel World Demo app
 
+
 ### Architecture
 The app follows the MVVM (Model-View-ViewModel) architecture, ensuring separation of concerns and a maintainable codebase:
 

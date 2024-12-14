@@ -28,7 +28,7 @@ class DetailsViewModelTest : BaseTest() {
     @Test
     fun `fetch properties should emit loading first`() = runTest {
         val loading = PropertyResult.Loading
-        coEvery { fetchExchangeRateUseCase.invoke() } returns flowOf(loading)
+        coEvery { fetchExchangeRateUseCase() } returns flowOf(loading)
         detailsViewModel.fetchExchangeRates()
         val emittedResult = detailsViewModel.exchangeRatesList.first()
         advanceUntilIdle()
@@ -38,7 +38,7 @@ class DetailsViewModelTest : BaseTest() {
     @Test
     fun `fetch properties should emit success result`() = runTest {
         val propertyResult = PropertyResult.Success(ratesResult)
-        coEvery { fetchExchangeRateUseCase.invoke() } returns flowOf(propertyResult)
+        coEvery { fetchExchangeRateUseCase() } returns flowOf(propertyResult)
         detailsViewModel.fetchExchangeRates()
         val emittedResult = detailsViewModel.exchangeRatesList.first()
         advanceUntilIdle()

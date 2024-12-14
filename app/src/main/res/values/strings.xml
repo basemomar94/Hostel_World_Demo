@@ -44,6 +44,9 @@
     <string name="notification_text9">Unlock up to 40% off on top hostels worldwide. Book today! 🌍💼</string>
     <string name="notification_title10">Find Your Perfect Stay! 🛎️✨</string>
     <string name="notification_text10">Explore thousands of hostels for every budget and style. Book now! 🏕️💖</string>
+    <string name="euro">EUR</string>
+    <string name="usd">USD</string>
+    <string name="gbp">GBP</string>
     <string name="star">Star</string>
     <string name="install_maps">Please install google maps and try again</string>
     <string name="open_in_map">Open in Maps</string>

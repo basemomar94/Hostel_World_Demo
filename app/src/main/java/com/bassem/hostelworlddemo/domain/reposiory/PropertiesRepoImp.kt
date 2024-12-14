@@ -1,18 +1,15 @@
 package com.bassem.hostelworlddemo.domain.reposiory
 
-import android.content.Context
 import com.bassem.hostelworlddemo.data.api.ApiService
 import com.bassem.hostelworlddemo.data.models.PropertyResult
 import com.bassem.hostelworlddemo.domain.reposiory.RepoConstants.ACTION_PROPERTIES
 import com.bassem.hostelworlddemo.domain.utils.getExceptionMessage
 import com.bassem.hostelworlddemo.domain.utils.trackApiCall
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class PropertiesRepoImp @Inject constructor(
-    private val apiService: ApiService,
-    @ApplicationContext private val context: Context
+    private val apiService: ApiService
 ) : PropertiesRepo {
     override suspend fun getProperties() = flow {
         emit(PropertyResult.Loading)
@@ -24,7 +21,7 @@ class PropertiesRepoImp @Inject constructor(
             )
             emit(PropertyResult.Success(result))
         } catch (e: Exception) {
-            emit(PropertyResult.Fail(context.getExceptionMessage(e)))
+            emit(PropertyResult.Fail(getExceptionMessage(e)))
         }
     }
 

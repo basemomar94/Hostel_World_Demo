@@ -3,7 +3,10 @@ package com.bassem.hostelworlddemo.presentation.utils
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import androidx.annotation.VisibleForTesting
+import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.District
+import com.bassem.hostelworlddemo.data.models.ErrorTypes
 import com.bassem.hostelworlddemo.data.models.ImagesGallery
 import com.bassem.hostelworlddemo.data.models.LowestPricePerNight
 import com.bassem.hostelworlddemo.data.models.Rates
@@ -59,6 +62,7 @@ fun String?.convert(currency: String, rates: Rates): String {
     }
 }
 
+@VisibleForTesting
 fun Double.roundToOneDecimals() = BigDecimal(this).setScale(1, RoundingMode.HALF_UP).toString()
 
 fun Context.openInMap(latitude: Double, longitude: Double) {
@@ -70,6 +74,12 @@ fun Context.openInMap(latitude: Double, longitude: Double) {
     } catch (e: Exception) {
         logger.e(e.message ?: "no app found")
     }
+}
 
+fun Context.getErrorMessage(errorType: ErrorTypes) = when (errorType) {
+    is ErrorTypes.Generic -> getString(R.string.unexpected_error)
+    ErrorTypes.IoException -> getString(R.string.net_work_error)
+    ErrorTypes.JsonException -> getString(R.string.local_parsing_error)
+    ErrorTypes.SqlException -> getString(R.string.remote_parsing_error)
 }
 

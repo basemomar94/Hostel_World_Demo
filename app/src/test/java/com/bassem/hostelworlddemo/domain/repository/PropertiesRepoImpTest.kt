@@ -20,7 +20,7 @@ class PropertiesRepoImpTest : BaseTest() {
 
     override fun setup() {
         super.setup()
-        repoImp = PropertiesRepoImp(apiService = apiService, context = context)
+        repoImp = PropertiesRepoImp(apiService = apiService)
     }
 
     @Test

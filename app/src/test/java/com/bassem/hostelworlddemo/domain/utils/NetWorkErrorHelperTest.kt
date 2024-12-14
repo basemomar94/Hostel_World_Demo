@@ -24,7 +24,7 @@ class NetWorkErrorHelperTest : BaseTest() {
 
         every { context.getString(expectedMessageResId) } returns "Expected message"
 
-        val actualMessage = context.getExceptionMessage(exception)
+        val actualMessage = getExceptionMessage(exception)
 
         Assertions.assertEquals("Expected message", actualMessage)
     }

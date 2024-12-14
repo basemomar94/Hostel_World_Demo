@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.annotation.VisibleForTesting
+import com.bassem.hostelworlddemo.R
 import com.bassem.hostelworlddemo.data.models.District
+import com.bassem.hostelworlddemo.data.models.ErrorTypes
 import com.bassem.hostelworlddemo.data.models.ImagesGallery
 import com.bassem.hostelworlddemo.data.models.LowestPricePerNight
 import com.bassem.hostelworlddemo.data.models.Rates
@@ -69,9 +71,15 @@ fun Context.openInMap(latitude: Double, longitude: Double) {
         val gmmIntentUri = Uri.parse("geo:$latitude,$longitude")
         val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
         startActivity(mapIntent)
-    } catch (e:Exception){
-        logger.e(e.message?:"no app found")
+    } catch (e: Exception) {
+        logger.e(e.message ?: "no app found")
     }
+}
 
+fun Context.getErrorMessage(errorType: ErrorTypes) = when (errorType) {
+    is ErrorTypes.Generic -> getString(R.string.unexpected_error)
+    ErrorTypes.IoException -> getString(R.string.net_work_error)
+    ErrorTypes.JsonException -> getString(R.string.local_parsing_error)
+    ErrorTypes.SqlException -> getString(R.string.remote_parsing_error)
 }
 

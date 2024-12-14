@@ -16,6 +16,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,6 +36,7 @@ import com.bassem.hostelworlddemo.presentation.ui.shared.LoadingIndicator
 import com.bassem.hostelworlddemo.presentation.ui.shared.PropertyLabelWithIcon
 import com.bassem.hostelworlddemo.presentation.utils.convert
 import com.bassem.hostelworlddemo.presentation.utils.getCity
+import com.bassem.hostelworlddemo.presentation.utils.getErrorMessage
 import com.bassem.hostelworlddemo.presentation.utils.getImagesListUrls
 import com.bassem.hostelworlddemo.presentation.viewmodels.DetailsViewModel
 
@@ -62,6 +64,7 @@ fun DetailsScreen(
     viewModel: DetailsViewModel = hiltViewModel(),
 ) {
     val propertyResult by viewModel.exchangeRatesList.collectAsState(initial = PropertyResult.Loading)
+    val context = LocalContext.current
     when (propertyResult) {
         is PropertyResult.Loading -> {
             LoadingIndicator()
@@ -95,7 +98,7 @@ fun DetailsScreen(
         }
 
         is PropertyResult.Fail -> {
-            ErrorTextCompose(message = (propertyResult as PropertyResult.Fail).reasons)
+            ErrorTextCompose(message = context.getErrorMessage((propertyResult as PropertyResult.Fail).errorTypes))
         }
     }
 

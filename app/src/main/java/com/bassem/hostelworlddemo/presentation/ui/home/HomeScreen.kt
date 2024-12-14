@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bassem.hostelworlddemo.R
@@ -14,6 +15,7 @@ import com.bassem.hostelworlddemo.data.models.PropertyResult
 import com.bassem.hostelworlddemo.data.models.PropertiesResultData
 import com.bassem.hostelworlddemo.presentation.ui.shared.ErrorTextCompose
 import com.bassem.hostelworlddemo.presentation.ui.shared.LoadingIndicator
+import com.bassem.hostelworlddemo.presentation.utils.getErrorMessage
 import com.bassem.hostelworlddemo.presentation.viewmodels.HomeViewModel
 import com.bassem.hostelworlddemo.utils.Logger
 
@@ -25,6 +27,7 @@ fun HomeScreen(
 ) {
     Logger("HomeScreen")
     val propertyResult by viewModel.propertiesList.collectAsState(initial = PropertyResult.Loading)
+    val context = LocalContext.current
 
     Column(
         modifier = modifier
@@ -34,13 +37,15 @@ fun HomeScreen(
             is PropertyResult.Loading -> {
                 LoadingIndicator()
             }
+
             is PropertyResult.Success -> {
-                val successPropertyResult = (propertyResult as PropertyResult.Success<Any?>).data as? PropertiesResultData
+                val successPropertyResult =
+                    (propertyResult as PropertyResult.Success<Any?>).data as? PropertiesResultData
                 if (successPropertyResult != null) {
                     val propertiesList = successPropertyResult.properties
                     if (propertiesList.isNotEmpty()) {
                         val city = successPropertyResult.location?.city
-                        if (city!=null){
+                        if (city != null) {
                             CityCountryCard(city = city.name, country = city.country)
                         }
                         HomeList(
@@ -56,7 +61,7 @@ fun HomeScreen(
             }
 
             is PropertyResult.Fail -> {
-                ErrorTextCompose(message = (propertyResult as PropertyResult.Fail).reasons)
+                ErrorTextCompose(message = context.getErrorMessage((propertyResult as PropertyResult.Fail).errorTypes))
             }
         }
     }

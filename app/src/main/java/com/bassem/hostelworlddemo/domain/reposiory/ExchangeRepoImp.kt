@@ -28,7 +28,7 @@ class ExchangeRepoImp @Inject constructor(
             emit(PropertyResult.Success(result))
         } catch (e: Exception) {
             log.e("Exception is $e message is ${e.cause?.message}")
-            emit(PropertyResult.Fail(context.getExceptionMessage(e)))
+            emit(PropertyResult.Fail(getExceptionMessage(e)))
         }
     }
 

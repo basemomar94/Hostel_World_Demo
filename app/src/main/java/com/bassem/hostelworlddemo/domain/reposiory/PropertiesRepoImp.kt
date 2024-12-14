@@ -2,9 +2,7 @@ package com.bassem.hostelworlddemo.domain.reposiory
 
 import com.bassem.hostelworlddemo.data.api.ApiService
 import com.bassem.hostelworlddemo.data.models.PropertyResult
-import com.bassem.hostelworlddemo.domain.reposiory.RepoConstants.ACTION_PROPERTIES
 import com.bassem.hostelworlddemo.domain.utils.getExceptionMessage
-import com.bassem.hostelworlddemo.domain.utils.trackApiCall
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 

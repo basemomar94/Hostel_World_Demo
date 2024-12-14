@@ -1,11 +1,8 @@
 package com.bassem.hostelworlddemo.domain.utils
 
-import android.content.Context
 import com.bassem.hostelworlddemo.BaseTest
-import com.bassem.hostelworlddemo.R
+import com.bassem.hostelworlddemo.data.models.ErrorTypes
 import com.google.gson.JsonParseException
-import io.mockk.every
-import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.params.ParameterizedTest
@@ -18,24 +15,20 @@ class NetWorkErrorHelperTest : BaseTest() {
 
     @ParameterizedTest
     @MethodSource("provideExceptions")
-    fun `test handling errors with expected message`(exception: Exception, expectedMessageResId: Int) = runTest {
-
-        val context = mockk<Context>(relaxed = true)
-
-        every { context.getString(expectedMessageResId) } returns "Expected message"
+    fun `test handling errors with expected message`(exception: Exception, expectedError: ErrorTypes) = runTest {
 
         val actualMessage = getExceptionMessage(exception)
 
-        Assertions.assertEquals("Expected message", actualMessage)
+        Assertions.assertEquals(expectedError, actualMessage)
     }
 
     companion object {
         @JvmStatic
         fun provideExceptions() = listOf(
-            Arguments.of(IOException(), R.string.net_work_error),
-            Arguments.of(SQLException(), R.string.local_parsing_error),
-            Arguments.of(JsonParseException(""), R.string.remote_parsing_error),
-            Arguments.of(NullPointerException(), R.string.unexpected_error)
+            Arguments.of(IOException(), ErrorTypes.IoException),
+            Arguments.of(SQLException(), ErrorTypes.SqlException),
+            Arguments.of(JsonParseException(""), ErrorTypes.JsonException),
+            Arguments.of(NullPointerException(),ErrorTypes.Generic(null))
         )
     }
 }

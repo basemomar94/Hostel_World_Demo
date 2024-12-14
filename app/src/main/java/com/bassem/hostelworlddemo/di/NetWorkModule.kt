@@ -17,7 +17,7 @@ import javax.inject.Provider
 
 @InstallIn(SingletonComponent::class)
 @Module
-class NetWorkModule {
+object NetWorkModule {
 
     @Singleton
     @Provides
@@ -38,11 +38,4 @@ class NetWorkModule {
             .build()
             .create(ApiService::class.java)
     }
-    @Singleton
-    @Provides
-    fun provideCoroutineDispatcher(): CoroutineDispatcher {
-        return Dispatchers.IO
-    }
-
-
 }

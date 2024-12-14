@@ -15,7 +15,7 @@ import javax.inject.Provider
 
 class ApiInterceptor @Inject constructor(
     private val apiServiceProvider: Provider<ApiService>,
-    private val dispatcher: CoroutineDispatcher,
+    dispatcher: CoroutineDispatcher,
 ) : Interceptor {
 
     private val log = Logger("ApiInterceptor")

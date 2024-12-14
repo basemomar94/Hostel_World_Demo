@@ -5,6 +5,7 @@ import com.bassem.hostelworlddemo.data.utils.getActionName
 import com.bassem.hostelworlddemo.utils.Logger
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -18,6 +19,8 @@ class ApiInterceptor @Inject constructor(
 ) : Interceptor {
 
     private val log = Logger("ApiInterceptor")
+    private val job = SupervisorJob()
+    private val scope = CoroutineScope(dispatcher + job)
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val startTime = System.currentTimeMillis()
@@ -40,7 +43,7 @@ class ApiInterceptor @Inject constructor(
         val duration = endTime - startTime
         val action = requestEndPoint.getActionName()
 
-        CoroutineScope(dispatcher).launch {
+        scope.launch {
             try {
                 apiServiceProvider.get()
                     .sendStats(action = action, duration = duration)

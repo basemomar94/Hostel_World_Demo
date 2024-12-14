@@ -20,7 +20,7 @@ class ExchangeRepoImpTest : BaseTest() {
 
     override fun setup() {
         super.setup()
-        repoImp = ExchangeRepoImp(apiService = apiService, context = context)
+        repoImp = ExchangeRepoImp(apiService = apiService)
     }
 
     @Test

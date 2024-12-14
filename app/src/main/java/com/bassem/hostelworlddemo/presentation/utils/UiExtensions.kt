@@ -67,8 +67,8 @@ fun Context.openInMap(latitude: Double, longitude: Double) {
         val gmmIntentUri = Uri.parse("geo:$latitude,$longitude")
         val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
         startActivity(mapIntent)
-    } catch (e:Exception){
-        logger.e(e.message?:"no app found")
+    } catch (e: Exception) {
+        logger.e(e.message ?: "no app found")
     }
 
 }

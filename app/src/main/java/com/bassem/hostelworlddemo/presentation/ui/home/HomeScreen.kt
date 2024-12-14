@@ -38,15 +38,15 @@ fun HomeScreen(
                 val successPropertyResult = (propertyResult as PropertyResult.Success<Any?>).data as? PropertiesResultData
                 if (successPropertyResult != null) {
                     val propertiesList = successPropertyResult.properties
-                    if (propertiesList.isNotEmpty()) {
+                    if (propertiesList?.isNotEmpty() == true) {
                         val city = successPropertyResult.location?.city
                         if (city!=null){
                             CityCountryCard(city = city.name, country = city.country)
                         }
                         HomeList(
-                            propertiesList = propertiesList,
-                            onClick = onClick,
-                        )
+                                propertiesList = propertiesList,
+                                onClick = onClick,
+                            )
                     } else {
                         ErrorTextCompose(message = stringResource(R.string.no_properties_found))
                     }

@@ -14,11 +14,7 @@ class PropertiesRepoImp @Inject constructor(
     override suspend fun getProperties() = flow {
         emit(PropertyResult.Loading)
         try {
-            val result = trackApiCall(
-                action = ACTION_PROPERTIES,
-                apiCall = { apiService.getProperties() },
-                service = apiService
-            )
+            val result = apiService.getProperties()
             emit(PropertyResult.Success(result))
         } catch (e: Exception) {
             emit(PropertyResult.Fail(getExceptionMessage(e)))

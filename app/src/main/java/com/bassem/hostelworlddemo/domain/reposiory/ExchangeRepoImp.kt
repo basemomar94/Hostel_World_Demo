@@ -20,11 +20,8 @@ class ExchangeRepoImp @Inject constructor(
     override suspend fun getExchangeRates() = flow {
         emit(PropertyResult.Loading)
         try {
-            val result = trackApiCall(
-                action = ACTION_EXCHANGE_RATES,
-                apiCall = { apiService.getExchangeRates() },
-                service = apiService
-            )
+            val result = apiService.getExchangeRates()
+
             emit(PropertyResult.Success(result))
         } catch (e: Exception) {
             log.e("Exception is $e message is ${e.cause?.message}")
